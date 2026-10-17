@@ -1,0 +1,40 @@
+QQ QRC decoder provenance record — checked 2026-10-13
+
+Scope: Sources/Real/QQMusicQRCDecoder.swift only. This is a migrated
+third-party-derived decoder, not an original real/Dan implementation.
+The user authorized migration from their existing QQ lyrics integration.
+Its DES-core comment named LDDC tripledes.py and C# QQMusicDecoder.
+
+Primary evidence:
+1. LDDC tripledes.py at commit 84631e8cd011fcc3f71ca0ae017e2c9758958ffc:
+https://github.com/chenmozhijin/LDDC/blob/84631e8cd011fcc3f71ca0ae017e2c9758958ffc/LDDC/core/decryptor/tripledes.py
+The file explicitly states:
+SPDX-FileCopyrightText: Copyright (C) 2024-2025 沉默の金 <cmzj@cmzj.org>
+SPDX-License-Identifier: GPL-3.0-only
+The repository LICENSE at the same commit is preserved verbatim in
+QQDecoder-LDDC-GPL-3.0.txt.
+
+2. That Python file itself references this C# source revision:
+https://github.com/WXRIW/QQMusicDecoder/blob/0837a3a1281e58f6db3e3e1dcb1d5441fb0ac268/QQMusicDecoder/DESHelper.cs
+The repository LICENSE at that exact revision states MIT License,
+Copyright (c) 2023 WXRIW. It is preserved verbatim in
+QQDecoder-WXRIW-MIT.txt.
+https://github.com/WXRIW/QQMusicDecoder/blob/0837a3a1281e58f6db3e3e1dcb1d5441fb0ac268/LICENSE
+
+Comparison evidence:
+All 512 S-box integer entries in the migrated Swift decoder match the
+LDDC file exactly, including its nonstandard entries. All 64 input bit
+index/output-position pairs in initialPermutation also match exactly.
+The byte-order extraction, inverse-permutation, round and key-schedule
+structure correspond to the named Python/C# functions on inspection.
+This supports the existing attribution. It does not establish which exact
+upstream revision the original Swift port used, or all intervening rights.
+
+Local changes: bounded growing zlib inflation; full-block and hex validity
+checks; linear hex parsing; periodic cancellation. The DES core is retained.
+The original integration had no matching entry in THIRD_PARTY_LICENSES.
+
+These notices preserve observed source evidence. They do not constitute
+legal clearance, change the license of the whole app, or imply that the
+MIT notice erases the identified Python file's GPL-3.0-only notice.
+This task is for the user's private local reuse; no publishing is performed.

@@ -1,0 +1,31 @@
+MediaRemoteAdapter source record — 2026-10-13
+
+Official repository: https://github.com/ungive/mediaremote-adapter
+Official tag: v0.7.7
+Commit: e3ff5021eb0875858bd05f48d2e9ba2e962d1cf6
+Source: https://github.com/ungive/mediaremote-adapter/tree/e3ff5021eb0875858bd05f48d2e9ba2e962d1cf6
+Source archive SHA256: adf2564265cbfbed6ee967cd44f70f774a78f681aaa41145c67730cad66f9277
+License: upstream BSD 3-Clause, copied verbatim as MediaRemoteAdapter-v0.7.7.txt.
+No upstream source patches were applied. This is a third-party dependency,
+not original Real/Dan code.
+
+Build: Xcode clang, unmodified 15 ADAPTER_SOURCES from upstream CMakeLists,
+ARC, default symbol visibility, Foundation/AppKit/UniformTypeIdentifiers,
+arm64 + x86_64, macOS deployment target 14.0. CMake was unavailable; the same
+framework target was built directly without installing new build dependencies.
+The upstream Info.plist version remains 0.1.0; use this source record and the
+bundled UpstreamSource.json to identify the actual v0.7.7 source revision.
+
+The upstream test-player executable was not built or run. Read-only adapter get
+returned valid JSON and exit0; all15 adapter_* exports from the old binary remain.
+The obsolete "Failed to seek to %d" error is absent in the built binary.
+Real's full app build re-signs this framework with its configured signing identity.
+Actual QQ seek acceptance remains separate from this build/read-only validation.
+
+Local reproducibility and recovery (outside application bundle):
+work/vendor-update/build-official-framework.py
+work/vendor-update/source.json
+work/vendor-update/build-command.json
+work/vendor-update/candidate-verification.json
+work/vendor-update/MediaRemoteAdapter-original-before-v0.7.7.zip
+Backup ZIP SHA256: 5e14cbe86da5243f11f0e3a3388bd690132b77448925b4ef5d7f0db2ca21cb81

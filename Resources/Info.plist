@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>Real</string>
+	<key>CFBundleExecutable</key>
+	<string>real</string>
+	<key>CFBundleIconFile</key>
+	<string>Real</string>
+	<key>CFBundleIdentifier</key>
+	<string>local.dan.real</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>zh-Hans</string>
+		<string>ja</string>
+		<string>ru</string>
+	</array>
+	<key>CFBundleName</key>
+	<string>Real</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.1.0</string>
+	<key>CFBundleVersion</key>
+	<string>3</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>14.0</string>
+	<key>LSUIElement</key>
+	<true/>
+	<key>NSAccessibilityUsageDescription</key>
+	<string>Real 使用辅助功能收起和恢复你点击的应用窗口。</string>
+	<key>NSAppleEventsUsageDescription</key>
+	<string>Real 读取正在播放的曲目，并在你操作时控制音乐播放。</string>
+	<key>NSAudioCaptureUsageDescription</key>
+	<string>Real 仅在你开启声音频谱后分析系统音频，不录制或保存音频。</string>
+	<key>NSCalendarsFullAccessUsageDescription</key>
+	<string>Real 在灵动岛显示你选择的日历事件。</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Real 仅在打开镜子时使用摄像头显示预览。</string>
+	<key>NSHighResolutionCapable</key>
+	<true/>
+	<key>NSInputMonitoringUsageDescription</key>
+	<string>Real 使用输入监控识别程序坞点击和系统控制键。</string>
+	<key>NSPrincipalClass</key>
+	<string>NSApplication</string>
+	<key>NSRemindersFullAccessUsageDescription</key>
+	<string>Real 显示提醒事项，并允许你将它们标记为完成。</string>
+</dict>
+</plist>

@@ -1,0 +1,7 @@
+"NSAppleEventsUsageDescription" = "Real reads the current track and controls playback when you use the player.";
+"NSCameraUsageDescription" = "Real uses the camera only when you open the mirror.";
+"NSCalendarsFullAccessUsageDescription" = "Real displays events from the calendars you select.";
+"NSRemindersFullAccessUsageDescription" = "Real displays reminders and lets you mark them complete.";
+"NSAccessibilityUsageDescription" = "Real uses Accessibility to minimize and restore the application windows you click.";
+"NSInputMonitoringUsageDescription" = "Real uses Input Monitoring to recognize Dock clicks and system control keys.";
+"NSAudioCaptureUsageDescription" = "Real analyzes system audio only when you start the spectrum. Audio is never recorded or saved.";

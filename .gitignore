@@ -1,0 +1,14 @@
+.DS_Store
+build/
+work/
+backup/
+.checks/
+*.log
+*.dmg
+*.zip
+*.dSYM/
+.env
+.env.*
+*.p12
+*.pfx
+*.key

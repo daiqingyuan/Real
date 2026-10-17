@@ -1,0 +1,2372 @@
+{
+  "Real 的图标": {
+    "en": "Real icons",
+    "ja": "Real のアイコン",
+    "ru": "Значки Real"
+  },
+  "主显示器": {
+    "en": "Main display",
+    "ja": "メインディスプレイ",
+    "ru": "Основной дисплей"
+  },
+  "亮度提示": {
+    "en": "Brightness indicator",
+    "ja": "明るさの表示",
+    "ru": "Индикатор яркости"
+  },
+  "使用后自动移除": {
+    "en": "Remove automatically after use",
+    "ja": "使用後に自動削除",
+    "ru": "Убирать после использования"
+  },
+  "使用电池": {
+    "en": "On battery power",
+    "ja": "バッテリー使用中",
+    "ru": "Питание от аккумулятора"
+  },
+  "偏好设置": {
+    "en": "Settings",
+    "ja": "設定",
+    "ru": "Настройки"
+  },
+  "允许访问日历与提醒事项": {
+    "en": "Allow Calendar and Reminders access",
+    "ja": "カレンダーとリマインダーへのアクセスを許可",
+    "ru": "Разрешить доступ к календарю и напоминаниям"
+  },
+  "充电状态提醒": {
+    "en": "Charging status alerts",
+    "ja": "充電状態の通知",
+    "ru": "Уведомления о зарядке"
+  },
+  "全天": {
+    "en": "All day",
+    "ja": "終日",
+    "ru": "Весь день"
+  },
+  "全屏时隐藏": {
+    "en": "Hide in full screen",
+    "ja": "フルスクリーン時に非表示",
+    "ru": "Скрывать в полноэкранном режиме"
+  },
+  "关于 Real": {
+    "en": "About Real",
+    "ja": "Real について",
+    "ru": "О Real"
+  },
+  "分享": {
+    "en": "Share",
+    "ja": "共有",
+    "ru": "Поделиться"
+  },
+  "切歌时短暂展开": {
+    "en": "Briefly expand on track changes",
+    "ja": "曲の切り替え時に一時的に展開",
+    "ru": "Ненадолго раскрывать при смене трека"
+  },
+  "午后播放列表": {
+    "en": "Afternoon playlist",
+    "ja": "午後のプレイリスト",
+    "ru": "Дневной плейлист"
+  },
+  "只处理当前桌面的普通窗口；恢复同一组，保留原本手动最小化的窗口。": {
+    "en": "Only affects standard windows on the current desktop. Restores the same group and leaves manually minimized windows as they were.",
+    "ja": "現在のデスクトップの通常ウインドウだけを操作します。同じウインドウを復元し、手動で最小化したものはそのままにします。",
+    "ru": "Работает только с обычными окнами текущего рабочего стола. Восстанавливает ту же группу, не затрагивая окна, свёрнутые вручную."
+  },
+  "启用此模块": {
+    "en": "Enable this module",
+    "ja": "このモジュールを有効にする",
+    "ru": "Включить этот модуль"
+  },
+  "启用点击收起": {
+    "en": "Enable click to minimize",
+    "ja": "クリックで最小化を有効にする",
+    "ru": "Включить сворачивание по нажатию"
+  },
+  "圆形镜子": {
+    "en": "Round mirror",
+    "ja": "丸いミラー",
+    "ru": "Круглое зеркало"
+  },
+  "在 Finder 中显示": {
+    "en": "Show in Finder",
+    "ja": "Finder で表示",
+    "ru": "Показать в Finder"
+  },
+  "在所有显示器上显示": {
+    "en": "Show on all displays",
+    "ja": "すべてのディスプレイに表示",
+    "ru": "Показывать на всех дисплеях"
+  },
+  "在程序坞中显示": {
+    "en": "Show in Dock",
+    "ja": "Dock に表示",
+    "ru": "Показывать в Dock"
+  },
+  "在菜单栏中显示": {
+    "en": "Show in menu bar",
+    "ja": "メニューバーに表示",
+    "ru": "Показывать в строке меню"
+  },
+  "外观与展开方式": {
+    "en": "Appearance and expansion",
+    "ja": "外観と展開",
+    "ru": "Внешний вид и раскрытие"
+  },
+  "始终显示标签页": {
+    "en": "Always show tabs",
+    "ja": "タブを常に表示",
+    "ru": "Всегда показывать вкладки"
+  },
+  "完成": {
+    "en": "Done",
+    "ja": "完了",
+    "ru": "Готово"
+  },
+  "导出诊断": {
+    "en": "Export diagnostics",
+    "ja": "診断情報を書き出す",
+    "ru": "Экспорт диагностики"
+  },
+  "封面背景模糊": {
+    "en": "Blur cover background",
+    "ja": "カバー背景をぼかす",
+    "ru": "Размывать фон обложки"
+  },
+  "屏幕录制": {
+    "en": "Screen Recording",
+    "ja": "画面収録",
+    "ru": "Запись экрана"
+  },
+  "展开等待": {
+    "en": "Expansion delay",
+    "ja": "展開までの待ち時間",
+    "ru": "Задержка раскрытия"
+  },
+  "彩色频谱": {
+    "en": "Color spectrum",
+    "ja": "カラースペクトラム",
+    "ru": "Цветной спектр"
+  },
+  "悬停时展开": {
+    "en": "Expand on hover",
+    "ja": "ポインタを重ねると展開",
+    "ru": "Раскрывать при наведении"
+  },
+  "打开系统设置": {
+    "en": "Open System Settings",
+    "ja": "システム設定を開く",
+    "ru": "Открыть Системные настройки"
+  },
+  "打开镜子": {
+    "en": "Open mirror",
+    "ja": "ミラーを開く",
+    "ru": "Открыть зеркало"
+  },
+  "打开音乐或 Spotify 开始播放": {
+    "en": "Open Music or Spotify to play",
+    "ja": "ミュージックまたはSpotifyで再生",
+    "ru": "Начните воспроизведение в Музыке или Spotify"
+  },
+  "拖入文件，随时取用": {
+    "en": "Drop files here to keep them handy",
+    "ja": "ファイルをドロップして、いつでも取り出せます",
+    "ru": "Перетащите файлы сюда, чтобы держать их под рукой"
+  },
+  "拖入时展开": {
+    "en": "Expand when dragging files in",
+    "ja": "ファイルをドラッグすると展開",
+    "ru": "Раскрывать при перетаскивании файлов"
+  },
+  "拖出时复制": {
+    "en": "Copy when dragging files out",
+    "ja": "ドラッグして取り出すときにコピー",
+    "ru": "Копировать при перетаскивании наружу"
+  },
+  "排除应用的标识，用逗号分隔": {
+    "en": "Excluded app identifiers, separated by commas",
+    "ja": "除外するアプリの識別子をカンマ区切りで入力",
+    "ru": "Идентификаторы исключённых приложений через запятую"
+  },
+  "提示": {
+    "en": "Notice",
+    "ja": "お知らせ",
+    "ru": "Уведомление"
+  },
+  "摄像头不可用": {
+    "en": "Camera unavailable",
+    "ja": "カメラを利用できません",
+    "ru": "Камера недоступна"
+  },
+  "摄像头仅在打开镜子时运行。": {
+    "en": "The camera runs only while the mirror is open.",
+    "ja": "カメラはミラーを開いている間だけ動作します。",
+    "ru": "Камера работает только при открытом зеркале."
+  },
+  "播放器跟随封面配色": {
+    "en": "Match player colors to cover art",
+    "ja": "プレーヤーの色をカバーに合わせる",
+    "ru": "Подбирать цвета плеера по обложке"
+  },
+  "文件暂存": {
+    "en": "File shelf",
+    "ja": "ファイルシェルフ",
+    "ru": "Полка для файлов"
+  },
+  "日历与提醒": {
+    "en": "Calendar and reminders",
+    "ja": "カレンダーとリマインダー",
+    "ru": "Календарь и напоминания"
+  },
+  "日本語": {
+    "en": "Japanese",
+    "ja": "日本語",
+    "ru": "Японский"
+  },
+  "显示全天日程": {
+    "en": "Show all-day events",
+    "ja": "終日の予定を表示",
+    "ru": "Показывать события на весь день"
+  },
+  "显示已完成事项": {
+    "en": "Show completed reminders",
+    "ja": "完了済みのリマインダーを表示",
+    "ru": "Показывать выполненные напоминания"
+  },
+  "显示提醒事项": {
+    "en": "Show reminders",
+    "ja": "リマインダーを表示",
+    "ru": "Показывать напоминания"
+  },
+  "显示电量百分比": {
+    "en": "Show battery percentage",
+    "ja": "バッテリー残量をパーセントで表示",
+    "ru": "Показывать заряд в процентах"
+  },
+  "显示百分比": {
+    "en": "Show percentage",
+    "ja": "パーセントを表示",
+    "ru": "Показывать проценты"
+  },
+  "显示设置入口": {
+    "en": "Show settings button",
+    "ja": "設定ボタンを表示",
+    "ru": "Показывать кнопку настроек"
+  },
+  "显示阴影": {
+    "en": "Show shadow",
+    "ja": "影を表示",
+    "ru": "Показывать тень"
+  },
+  "更多外观设置": {
+    "en": "More appearance settings",
+    "ja": "その他の外観設定",
+    "ru": "Другие настройки внешнего вида"
+  },
+  "更多音乐设置": {
+    "en": "More music settings",
+    "ja": "その他の音楽設定",
+    "ru": "Другие настройки музыки"
+  },
+  "有文件时优先显示": {
+    "en": "Prioritize shelf when files are present",
+    "ja": "ファイルがあるときにシェルフを優先表示",
+    "ru": "Показывать полку в первую очередь, если в ней есть файлы"
+  },
+  "权限": {
+    "en": "Permissions",
+    "ja": "アクセス権",
+    "ru": "Разрешения"
+  },
+  "歌词": {
+    "en": "Lyrics",
+    "ja": "歌詞",
+    "ru": "Текст песни"
+  },
+  "正在充电": {
+    "en": "Charging",
+    "ja": "充電中",
+    "ru": "Заряжается"
+  },
+  "没有正在播放的音乐": {
+    "en": "No music playing",
+    "ja": "再生中の音楽はありません",
+    "ru": "Музыка не воспроизводится"
+  },
+  "添加文件": {
+    "en": "Add files",
+    "ja": "ファイルを追加",
+    "ru": "Добавить файлы"
+  },
+  "灵动岛": {
+    "en": "Dynamic Island",
+    "ja": "Dynamic Island",
+    "ru": "Динамический остров"
+  },
+  "灵动岛高度": {
+    "en": "Island height",
+    "ja": "アイランドの高さ",
+    "ru": "Высота острова"
+  },
+  "点一下收起当前桌面的应用窗口，再点一下原样恢复。": {
+    "en": "Click once to minimize the app’s windows on this desktop; click again to restore them.",
+    "ja": "クリックで現在のデスクトップのアプリウインドウを最小化し、もう一度クリックで元に戻します。",
+    "ru": "Нажмите, чтобы свернуть окна приложения на текущем рабочем столе. Нажмите ещё раз, чтобы восстановить их."
+  },
+  "点击行为": {
+    "en": "Click behavior",
+    "ja": "クリック時の動作",
+    "ru": "Действие при нажатии"
+  },
+  "版本": {
+    "en": "Version",
+    "ja": "バージョン",
+    "ru": "Версия"
+  },
+  "独立开发版本": {
+    "en": "Independently developed version",
+    "ja": "独自開発版",
+    "ru": "Независимая разработка"
+  },
+  "由 dan 创作": {
+    "en": "Created by dan",
+    "ja": "dan が制作",
+    "ru": "Создано dan"
+  },
+  "电池状态": {
+    "en": "Battery status",
+    "ja": "バッテリーの状態",
+    "ru": "Состояние аккумулятора"
+  },
+  "界面语言": {
+    "en": "Interface language",
+    "ja": "表示言語",
+    "ru": "Язык интерфейса"
+  },
+  "登录后直接在后台运行，不弹窗口或播放动画。": {
+    "en": "Runs in the background after login, without opening windows or playing animations.",
+    "ja": "ログイン後はバックグラウンドで動作し、ウインドウやアニメーションは表示しません。",
+    "ru": "После входа работает в фоне, не открывая окна и не показывая анимацию."
+  },
+  "登录时启动": {
+    "en": "Launch at login",
+    "ja": "ログイン時に起動",
+    "ru": "Запускать при входе"
+  },
+  "移除": {
+    "en": "Remove",
+    "ja": "取り除く",
+    "ru": "Убрать"
+  },
+  "程序坞": {
+    "en": "Dock",
+    "ja": "Dock",
+    "ru": "Dock"
+  },
+  "简体中文": {
+    "en": "Simplified Chinese",
+    "ja": "簡体字中国語",
+    "ru": "Упрощённый китайский"
+  },
+  "系统提示": {
+    "en": "System indicators",
+    "ja": "システムインジケーター",
+    "ru": "Системные индикаторы"
+  },
+  "自动": {
+    "en": "Automatic",
+    "ja": "自動",
+    "ru": "Автоматически"
+  },
+  "自动切换显示器": {
+    "en": "Switch displays automatically",
+    "ja": "ディスプレイを自動で切り替える",
+    "ru": "Автоматически переключать дисплеи"
+  },
+  "触觉反馈": {
+    "en": "Haptic feedback",
+    "ja": "触覚フィードバック",
+    "ru": "Тактильный отклик"
+  },
+  "让 Real 按你的习惯，安静地运行。": {
+    "en": "Let Real run quietly, the way you like.",
+    "ja": "Real を好みに合わせて、静かに動作させましょう。",
+    "ru": "Пусть Real незаметно работает так, как вам удобно."
+  },
+  "记住上次标签页": {
+    "en": "Remember last tab",
+    "ja": "前回のタブを記憶",
+    "ru": "Запоминать последнюю вкладку"
+  },
+  "设计预览 · 后台功能未启动": {
+    "en": "Design preview · Background features are off",
+    "ja": "デザインプレビュー · バックグラウンド機能は停止中",
+    "ru": "Предпросмотр дизайна · Фоновые функции отключены"
+  },
+  "语言与启动": {
+    "en": "Language and startup",
+    "ja": "言語と起動",
+    "ru": "Язык и запуск"
+  },
+  "请在系统设置中允许登录项": {
+    "en": "Allow the login item in System Settings.",
+    "ja": "システム設定でログイン項目を許可してください。",
+    "ru": "Разрешите объект входа в Системных настройках."
+  },
+  "跟随系统": {
+    "en": "Use system language",
+    "ja": "システム言語に従う",
+    "ru": "Как в системе"
+  },
+  "辅助功能": {
+    "en": "Accessibility",
+    "ja": "アクセシビリティ",
+    "ru": "Универсальный доступ"
+  },
+  "输入监控": {
+    "en": "Input Monitoring",
+    "ja": "入力監視",
+    "ru": "Мониторинг ввода"
+  },
+  "退出 Real": {
+    "en": "Quit Real",
+    "ja": "Real を終了",
+    "ru": "Выйти из Real"
+  },
+  "锁屏时隐藏": {
+    "en": "Hide when screen is locked",
+    "ja": "画面ロック時に非表示",
+    "ru": "Скрывать при блокировке экрана"
+  },
+  "镜子与趣味": {
+    "en": "Mirror and fun",
+    "ja": "ミラーと遊び",
+    "ru": "Зеркало и развлечения"
+  },
+  "闲置时显示表情": {
+    "en": "Show a face when idle",
+    "ja": "待機中に表情を表示",
+    "ru": "Показывать эмоцию в режиме ожидания"
+  },
+  "隐藏图标或关闭设置窗口，后台继续运行。只有退出才结束。": {
+    "en": "Hiding the icon or closing Settings keeps Real running in the background. Choose Quit to stop it.",
+    "ja": "アイコンを隠したり設定ウインドウを閉じたりしても、バックグラウンドで動作を続けます。停止するには終了を選びます。",
+    "ru": "Скрытие значка или закрытие настроек не останавливает работу в фоне. Для остановки выберите «Выйти»."
+  },
+  "需要摄像头权限": {
+    "en": "Camera access is required",
+    "ja": "カメラへのアクセス許可が必要です",
+    "ru": "Требуется доступ к камере"
+  },
+  "音乐、提醒与随手暂存，都在屏幕上方。": {
+    "en": "Music, reminders, and files, right at the top of your screen.",
+    "ja": "音楽、リマインダー、一時保存したファイルを画面の上部に。",
+    "ru": "Музыка, напоминания и файлы — в верхней части экрана."
+  },
+  "音乐与歌词": {
+    "en": "Music and lyrics",
+    "ja": "音楽と歌詞",
+    "ru": "Музыка и тексты песен"
+  },
+  "音量提示": {
+    "en": "Volume indicator",
+    "ja": "音量の表示",
+    "ru": "Индикатор громкости"
+  },
+  "预览系统提示": {
+    "en": "Preview system indicator",
+    "ja": "システムインジケーターをプレビュー",
+    "ru": "Предпросмотр системного индикатора"
+  },
+  "首次打开时显示品牌动画": {
+    "en": "Show brand animation on first launch",
+    "ja": "初回起動時にブランドアニメーションを表示",
+    "ru": "Показывать фирменную анимацию при первом запуске"
+  },
+  "首选显示器": {
+    "en": "Preferred display",
+    "ja": "優先ディスプレイ",
+    "ru": "Предпочтительный дисплей"
+  },
+  "打开设置": {
+    "en": "Open Settings",
+    "ja": "設定を開く",
+    "ru": "Открыть настройки"
+  },
+  "隐藏程序坞图标": {
+    "en": "Hide Dock icon",
+    "ja": "Dock アイコンを隠す",
+    "ru": "Скрыть значок в Dock"
+  },
+  "显示程序坞图标": {
+    "en": "Show Dock icon",
+    "ja": "Dock アイコンを表示",
+    "ru": "Показать значок в Dock"
+  },
+  "原生预览": {
+    "en": "Native preview",
+    "ja": "ネイティブプレビュー",
+    "ru": "Предпросмотр приложения"
+  },
+  "返回设置": {
+    "en": "Back to Settings",
+    "ja": "設定に戻る",
+    "ru": "Вернуться к настройкам"
+  },
+  "仅首次打开": {
+    "en": "First launch only",
+    "ja": "初回起動時のみ",
+    "ru": "Только при первом запуске"
+  },
+  "启动后台功能": {
+    "en": "Start background features",
+    "ja": "バックグラウンド機能を開始",
+    "ru": "Запустить фоновые функции"
+  },
+  "请先退出旧版 Real，避免两套后台同时控制窗口。": {
+    "en": "Quit the previous Real app first to avoid two background apps controlling windows.",
+    "ja": "複数のバックグラウンドアプリがウインドウを操作しないよう、先に旧版 Real を終了してください。",
+    "ru": "Сначала закройте прежнюю версию Real, чтобы два фоновых приложения не управляли окнами одновременно."
+  },
+  "上一首": {
+    "en": "Previous track",
+    "ja": "前の曲",
+    "ru": "Предыдущий трек"
+  },
+  "下一首": {
+    "en": "Next track",
+    "ja": "次の曲",
+    "ru": "Следующий трек"
+  },
+  "五个控制位置": {
+    "en": "Five control positions",
+    "ja": "5つの操作位置",
+    "ru": "Пять позиций управления"
+  },
+  "仅支持 YTMDesktop v2 的 Companion Server。请先在该应用中启用伴侣服务器。": {
+    "en": "Supports the YTMDesktop v2 Companion Server. Enable the companion server in that app first.",
+    "ja": "YTMDesktop v2 の Companion Server に対応しています。まず同アプリでサーバーを有効にしてください。",
+    "ru": "Поддерживается Companion Server приложения YTMDesktop v2. Сначала включите сервер в этом приложении."
+  },
+  "令牌仅保存到此 Mac 的钥匙串。连接和授权均需点击按钮；不会自动启动播放器。": {
+    "en": "Tokens are saved only in this Mac’s Keychain. Connect or authorize with the buttons; the player is never launched automatically.",
+    "ja": "トークンはこのMacのキーチェーンにのみ保存されます。接続と認証はボタンで行い、プレーヤーは自動起動しません。",
+    "ru": "Токены сохраняются только в Связке ключей этого Mac. Подключение и авторизация выполняются кнопками; плеер не запускается автоматически."
+  },
+  "令牌已保存到钥匙串。": {
+    "en": "Token saved in Keychain.",
+    "ja": "トークンをキーチェーンに保存しました。",
+    "ru": "Токен сохранён в Связке ключей."
+  },
+  "伴侣令牌（可通过授权获取）": {
+    "en": "Companion token (or use Authorize)",
+    "ja": "Companionトークン（認証で取得可能）",
+    "ru": "Токен Companion (или нажмите «Авторизовать»)"
+  },
+  "伴侣服务器地址": {
+    "en": "Companion server URL",
+    "ja": "CompanionサーバーのURL",
+    "ru": "Адрес сервера Companion"
+  },
+  "位置": {
+    "en": "Position",
+    "ja": "位置",
+    "ru": "Позиция"
+  },
+  "保存并连接": {
+    "en": "Save and connect",
+    "ja": "保存して接続",
+    "ru": "Сохранить и подключиться"
+  },
+  "删除已存令牌": {
+    "en": "Delete saved token",
+    "ja": "保存済みトークンを削除",
+    "ru": "Удалить сохранённый токен"
+  },
+  "展开歌词": {
+    "en": "Show lyrics",
+    "ja": "歌詞を表示",
+    "ru": "Показать текст"
+  },
+  "已从钥匙串读取令牌。": {
+    "en": "Token loaded from Keychain.",
+    "ja": "キーチェーンからトークンを読み込みました。",
+    "ru": "Токен загружен из Связки ключей."
+  },
+  "已删除此服务器的令牌。": {
+    "en": "The token for this server was deleted.",
+    "ja": "このサーバーのトークンを削除しました。",
+    "ru": "Токен этого сервера удалён."
+  },
+  "授权 YTMDesktop": {
+    "en": "Authorize YTMDesktop",
+    "ja": "YTMDesktopを認証",
+    "ru": "Авторизовать YTMDesktop"
+  },
+  "授权成功，令牌已保存到钥匙串。": {
+    "en": "Authorized. Token saved in Keychain.",
+    "ja": "認証されました。トークンをキーチェーンに保存しました。",
+    "ru": "Авторизация выполнена. Токен сохранён в Связке ключей."
+  },
+  "播放": {
+    "en": "Play",
+    "ja": "再生",
+    "ru": "Воспроизвести"
+  },
+  "播放与暂停": {
+    "en": "Play / pause",
+    "ja": "再生・一時停止",
+    "ru": "Воспроизведение / пауза"
+  },
+  "播放来源": {
+    "en": "Playback source",
+    "ja": "再生ソース",
+    "ru": "Источник воспроизведения"
+  },
+  "播放进度": {
+    "en": "Playback position",
+    "ja": "再生位置",
+    "ru": "Позиция воспроизведения"
+  },
+  "收起歌词": {
+    "en": "Hide lyrics",
+    "ja": "歌詞を閉じる",
+    "ru": "Скрыть текст"
+  },
+  "断开连接": {
+    "en": "Disconnect",
+    "ja": "切断",
+    "ru": "Отключиться"
+  },
+  "暂停": {
+    "en": "Pause",
+    "ja": "一時停止",
+    "ru": "Пауза"
+  },
+  "歌词将在播放时显示": {
+    "en": "Lyrics appear during playback",
+    "ja": "再生中に歌詞が表示されます",
+    "ru": "Текст появится во время воспроизведения"
+  },
+  "此服务器没有已保存的令牌。": {
+    "en": "No saved token for this server.",
+    "ja": "このサーバーの保存済みトークンはありません。",
+    "ru": "Для этого сервера нет сохранённого токена."
+  },
+  "此版本不显示模拟频谱；未接入真实音频分析。": {
+    "en": "No simulated spectrum is shown; audio analysis is not connected in this version.",
+    "ja": "このバージョンは音声解析に未対応のため、疑似スペクトラムは表示しません。",
+    "ru": "В этой версии нет анализа аудио, поэтому имитация спектра не отображается."
+  },
+  "系统音量": {
+    "en": "System volume",
+    "ja": "システム音量",
+    "ru": "Системная громкость"
+  },
+  "系统音量与静音取决于当前音频输出设备是否支持软件控制。": {
+    "en": "System volume and mute require an audio output that supports software controls.",
+    "ja": "音量とミュートの操作には、ソフトウェア制御に対応した音声出力機器が必要です。",
+    "ru": "Управление громкостью и отключением звука требует поддержки программного управления аудиоустройством."
+  },
+  "自动：音乐与 Spotify": {
+    "en": "Automatic: Music and Spotify",
+    "ja": "自動：ミュージックとSpotify",
+    "ru": "Автоматически: Музыка и Spotify"
+  },
+  "请在设置中连接 YTMDesktop": {
+    "en": "Connect YTMDesktop in settings",
+    "ja": "設定でYTMDesktopを接続してください",
+    "ru": "Подключите YTMDesktop в настройках"
+  },
+  "请核对授权码：": {
+    "en": "Compare the authorization code:",
+    "ja": "認証コードを確認してください：",
+    "ru": "Сверьте код авторизации:"
+  },
+  "读取已存令牌": {
+    "en": "Load saved token",
+    "ja": "保存済みトークンを読み込む",
+    "ru": "Загрузить сохранённый токен"
+  },
+  "静音": {
+    "en": "Mute",
+    "ja": "ミュート",
+    "ru": "Выключить звук"
+  },
+  "音量": {
+    "en": "Volume",
+    "ja": "音量",
+    "ru": "Громкость"
+  },
+  "预览": {
+    "en": "Preview",
+    "ja": "プレビュー",
+    "ru": "Предпросмотр"
+  },
+  "电池信息不可用": {
+    "en": "Battery information unavailable",
+    "ja": "バッテリー情報を取得できません",
+    "ru": "Данные батареи недоступны"
+  },
+  "选择日历与提醒列表": {
+    "en": "Choose calendars and reminder lists",
+    "ja": "カレンダーとリマインダーを選択",
+    "ru": "Выбрать календари и списки напоминаний"
+  },
+  "快速查看": {
+    "en": "Quick Look",
+    "ja": "クイックルック",
+    "ru": "Быстрый просмотр"
+  },
+  "打开": {
+    "en": "Open",
+    "ja": "開く",
+    "ru": "Открыть"
+  },
+  "频谱未启用": {
+    "en": "Spectrum disabled",
+    "ja": "スペクトラムは無効です",
+    "ru": "Спектр отключён"
+  },
+  "正在请求系统音频权限…": {
+    "en": "Requesting system audio permission…",
+    "ja": "システム音声の許可を要求しています…",
+    "ru": "Запрашивается доступ к системному аудио…"
+  },
+  "没有可用的显示器捕获来源": {
+    "en": "No display capture source is available",
+    "ja": "利用可能なディスプレイキャプチャ元がありません",
+    "ru": "Нет доступного экрана для захвата"
+  },
+  "实时系统音频频谱": {
+    "en": "Live system audio spectrum",
+    "ja": "リアルタイムのシステム音声スペクトラム",
+    "ru": "Спектр системного аудио в реальном времени"
+  },
+  "系统音频格式不受支持": {
+    "en": "The system audio format is unsupported",
+    "ja": "システム音声の形式に対応していません",
+    "ru": "Формат системного аудио не поддерживается"
+  },
+  "请在系统设置的屏幕与系统音频录制中允许 Real，然后重新启用频谱。": {
+    "en": "Allow Real in System Settings → Screen & System Audio Recording, then enable the spectrum again.",
+    "ja": "システム設定の「画面とシステムオーディオの収録」でrealを許可し、スペクトラムを再度有効にしてください。",
+    "ru": "Разрешите Real в Системных настройках → Запись экрана и системного аудио, затем снова включите спектр."
+  },
+  "系统音频捕获已由用户停止": {
+    "en": "System audio capture was stopped by the user",
+    "ja": "ユーザーがシステム音声のキャプチャを停止しました",
+    "ru": "Пользователь остановил захват системного аудио"
+  },
+  "系统音频捕获失败：": {
+    "en": "System audio capture failed: ",
+    "ja": "システム音声のキャプチャに失敗しました：",
+    "ru": "Ошибка захвата системного аудио: "
+  },
+  "系统音频频谱": {
+    "en": "System audio spectrum",
+    "ja": "システム音声スペクトラム",
+    "ru": "Спектр системного аудио"
+  },
+  "显示系统混音的频率强度，不限于当前播放器。": {
+    "en": "Shows frequency levels of the captured system mix, not only the selected player.",
+    "ja": "選択したプレーヤーだけでなく、取得したシステム音声ミックスの周波数強度を表示します。",
+    "ru": "Показывает уровни частот захваченного системного аудио, а не только выбранного плеера."
+  },
+  "%@ 已关闭。": {
+    "en": "%@ has closed.",
+    "ja": "%@が終了しました。",
+    "ru": "%@ закрыт."
+  },
+  "%@ 未及时响应。": {
+    "en": "%@ did not respond in time.",
+    "ja": "%@が時間内に応答しませんでした。",
+    "ru": "%@ не ответил вовремя."
+  },
+  "仅有无时间戳歌词 · LRCLIB": {
+    "en": "Only untimed lyrics available · LRCLIB",
+    "ja": "タイムスタンプのない歌詞のみ · LRCLIB",
+    "ru": "Доступен только текст без тайминга · LRCLIB"
+  },
+  "伴侣服务器不可用": {
+    "en": "Companion server unavailable",
+    "ja": "Companionサーバーを利用できません",
+    "ru": "Сервер Companion недоступен"
+  },
+  "伴侣服务器拒绝访问，请在 YTMDesktop 中重新授权 Real。": {
+    "en": "Companion access was denied. Authorize Real again in YTMDesktop.",
+    "ja": "Companionへのアクセスが拒否されました。YTMDesktopでrealを再認証してください。",
+    "ru": "Доступ к Companion отклонён. Повторно авторизуйте Real в YTMDesktop."
+  },
+  "伴侣服务器请求过于频繁，正在等待重试。": {
+    "en": "Companion rate limit reached; waiting before retrying.",
+    "ja": "Companionのリクエスト上限に達したため、再試行まで待機しています。",
+    "ru": "Достигнут лимит запросов Companion; ожидаем перед повторной попыткой."
+  },
+  "伴侣请求失败（HTTP %@）。请确认已启用 YTMDesktop v2 伴侣服务器。": {
+    "en": "Companion request failed (HTTP %@). Check that the YTMDesktop v2 Companion Server is enabled.",
+    "ja": "Companionへのリクエストに失敗しました（HTTP %@）。YTMDesktop v2のCompanion Serverが有効か確認してください。",
+    "ru": "Ошибка запроса Companion (HTTP %@). Проверьте, включён ли Companion Server в YTMDesktop v2."
+  },
+  "可开始连接": {
+    "en": "Ready to connect",
+    "ja": "接続できます",
+    "ru": "Готово к подключению"
+  },
+  "同步歌词 · LRCLIB": {
+    "en": "Timed lyrics · LRCLIB",
+    "ja": "同期歌詞 · LRCLIB",
+    "ru": "Синхронизированный текст · LRCLIB"
+  },
+  "已授权": {
+    "en": "Authorized",
+    "ja": "認証済み",
+    "ru": "Авторизовано"
+  },
+  "已连接": {
+    "en": "Connected",
+    "ja": "接続済み",
+    "ru": "Подключено"
+  },
+  "已连接 · 等待播放": {
+    "en": "Connected · waiting for music",
+    "ja": "接続済み・再生待ち",
+    "ru": "Подключено · ожидание музыки"
+  },
+  "授权失败": {
+    "en": "Authorization failed",
+    "ja": "認証に失敗しました",
+    "ru": "Ошибка авторизации"
+  },
+  "接口路径无效": {
+    "en": "Invalid API path",
+    "ja": "APIパスが無効です",
+    "ru": "Неверный путь API"
+  },
+  "播放器请求失败。": {
+    "en": "Player request failed.",
+    "ja": "プレーヤーへのリクエストに失敗しました。",
+    "ru": "Ошибка запроса к плееру."
+  },
+  "无法读取此播放器的脚本字典。": {
+    "en": "This player’s scripting dictionary is unavailable.",
+    "ja": "このプレーヤーのスクリプト辞書を読み込めません。",
+    "ru": "Словарь скриптов этого плеера недоступен."
+  },
+  "服务器地址无效": {
+    "en": "Invalid server URL",
+    "ja": "サーバーのURLが無効です",
+    "ru": "Неверный адрес сервера"
+  },
+  "未找到匹配的同步歌词 · LRCLIB": {
+    "en": "No matching timed lyrics found · LRCLIB",
+    "ja": "一致する同期歌詞が見つかりません · LRCLIB",
+    "ru": "Подходящий синхронизированный текст не найден · LRCLIB"
+  },
+  "未连接": {
+    "en": "Disconnected",
+    "ja": "未接続",
+    "ru": "Не подключено"
+  },
+  "歌词不可用（HTTP %@）": {
+    "en": "Lyrics unavailable (HTTP %@)",
+    "ja": "歌詞を取得できません（HTTP %@）",
+    "ru": "Текст недоступен (HTTP %@)"
+  },
+  "歌词不可用：%@": {
+    "en": "Lyrics unavailable: %@",
+    "ja": "歌詞を取得できません：%@",
+    "ru": "Текст недоступен: %@"
+  },
+  "歌词服务繁忙，请稍后切换曲目重试。": {
+    "en": "Lyrics provider is busy; try another track later.",
+    "ja": "歌詞サービスが混雑しています。しばらくしてから曲を切り替えてください。",
+    "ru": "Сервис текстов занят; позже попробуйте переключить трек."
+  },
+  "歌词服务繁忙，请稍后重试。": {
+    "en": "Lyrics provider is busy; please try later.",
+    "ja": "歌詞サービスが混雑しています。後でもう一度お試しください。",
+    "ru": "Сервис текстов занят; повторите попытку позже."
+  },
+  "正在查找歌词…": {
+    "en": "Looking up lyrics…",
+    "ja": "歌詞を検索しています…",
+    "ru": "Поиск текста…"
+  },
+  "正在请求伴侣授权…": {
+    "en": "Requesting companion authorization…",
+    "ja": "Companionの認証を要求しています…",
+    "ru": "Запрашивается авторизация Companion…"
+  },
+  "此播放器不支持这项控制。": {
+    "en": "This player does not support that control.",
+    "ja": "このプレーヤーはこの操作に対応していません。",
+    "ru": "Этот плеер не поддерживает данную команду."
+  },
+  "此播放器未提供所需的播放接口。": {
+    "en": "This player does not expose the required playback API.",
+    "ja": "このプレーヤーには必要な再生APIがありません。",
+    "ru": "Этот плеер не предоставляет необходимый API воспроизведения."
+  },
+  "等待曲目信息": {
+    "en": "Waiting for track information",
+    "ja": "曲情報を待っています",
+    "ru": "Ожидание информации о треке"
+  },
+  "等待音乐播放": {
+    "en": "Waiting for music",
+    "ja": "音楽の再生を待っています",
+    "ru": "Ожидание музыки"
+  },
+  "纯音乐 · LRCLIB": {
+    "en": "Instrumental · LRCLIB",
+    "ja": "インストゥルメンタル · LRCLIB",
+    "ru": "Инструментальный трек · LRCLIB"
+  },
+  "请使用 HTTPS 伴侣服务器地址，或本机 HTTP 地址；不要在地址中包含凭据。": {
+    "en": "Use an HTTPS companion URL, or HTTP on localhost. Do not include credentials in the URL.",
+    "ja": "HTTPSのCompanion URLか、ローカルホストのHTTP URLを使用してください。URLに認証情報を含めないでください。",
+    "ru": "Используйте HTTPS-адрес Companion или HTTP на localhost. Не включайте учётные данные в URL."
+  },
+  "请使用以 /api/v1 结尾的 YTMDesktop 服务器地址。": {
+    "en": "Use the YTMDesktop server URL ending in /api/v1.",
+    "ja": "末尾が/api/v1のYTMDesktopサーバーURLを使用してください。",
+    "ru": "Используйте адрес сервера YTMDesktop, заканчивающийся на /api/v1."
+  },
+  "请先在 YTMDesktop 中授权 Real。": {
+    "en": "Authorize Real in YTMDesktop first.",
+    "ja": "まずYTMDesktopでrealを認証してください。",
+    "ru": "Сначала авторизуйте Real в YTMDesktop."
+  },
+  "请先打开音乐或 Spotify 并选择曲目。": {
+    "en": "Open Music or Spotify and choose a track first.",
+    "ja": "まずミュージックまたはSpotifyを開き、曲を選択してください。",
+    "ru": "Сначала откройте Музыку или Spotify и выберите трек."
+  },
+  "请在系统设置 → 隐私与安全性 → 自动化中允许 Real 控制 %@，然后重启 Real。": {
+    "en": "Allow Real to control %@ in System Settings → Privacy & Security → Automation, then restart Real.",
+    "ja": "システム設定 → プライバシーとセキュリティ → オートメーションでrealによる%@の操作を許可し、realを再起動してください。",
+    "ru": "Разрешите Real управлять %@ в Системных настройках → Конфиденциальность и безопасность → Автоматизация, затем перезапустите Real."
+  },
+  "请授权 YTMDesktop 或输入伴侣令牌": {
+    "en": "Authorize YTMDesktop or enter its companion token",
+    "ja": "YTMDesktopを認証するかCompanionトークンを入力してください",
+    "ru": "Авторизуйте YTMDesktop или введите токен Companion"
+  },
+  "请核对授权码，并在 YTMDesktop 中允许 Real": {
+    "en": "Compare the code and approve Real in YTMDesktop",
+    "ja": "コードを確認し、YTMDesktopでrealを許可してください",
+    "ru": "Сверьте код и разрешите Real в YTMDesktop"
+  },
+  "尚未请求日历访问权限。": {
+    "en": "Calendar access has not been requested.",
+    "ja": "カレンダーへのアクセスはまだ要求していません。",
+    "ru": "Доступ к календарю ещё не запрошен."
+  },
+  "正在请求日历和提醒事项访问权限…": {
+    "en": "Requesting Calendar and Reminders access…",
+    "ja": "カレンダーとリマインダーへのアクセスを要求しています…",
+    "ru": "Запрашивается доступ к календарю и напоминаниям…"
+  },
+  "日历：": {
+    "en": "Calendar: ",
+    "ja": "カレンダー：",
+    "ru": "Календарь: "
+  },
+  "提醒事项：": {
+    "en": "Reminders: ",
+    "ja": "リマインダー：",
+    "ru": "Напоминания: "
+  },
+  "提醒事项": {
+    "en": "Reminders",
+    "ja": "リマインダー",
+    "ru": "Напоминания"
+  },
+  "无标题日程": {
+    "en": "Untitled event",
+    "ja": "無題の予定",
+    "ru": "Событие без названия"
+  },
+  "无标题提醒事项": {
+    "en": "Untitled reminder",
+    "ja": "無題のリマインダー",
+    "ru": "Напоминание без названия"
+  },
+  "已连接日历": {
+    "en": "Calendar connected",
+    "ja": "カレンダーに接続済み",
+    "ru": "Календарь подключён"
+  },
+  "已连接提醒事项": {
+    "en": "Reminders connected",
+    "ja": "リマインダーに接続済み",
+    "ru": "Напоминания подключены"
+  },
+  "无法读取提醒事项，请尝试刷新。": {
+    "en": "Unable to read reminders. Try refreshing.",
+    "ja": "リマインダーを読み込めません。更新してください。",
+    "ru": "Не удалось прочитать напоминания. Попробуйте обновить."
+  },
+  "此提醒事项不可用，或提醒事项访问权限已关闭。": {
+    "en": "This reminder is unavailable or Reminders access is disabled.",
+    "ja": "このリマインダーは利用できないか、アクセスが無効になっています。",
+    "ru": "Это напоминание недоступно или доступ к напоминаниям отключён."
+  },
+  "无法更新提醒事项：": {
+    "en": "Could not update reminder: ",
+    "ja": "リマインダーを更新できませんでした：",
+    "ru": "Не удалось обновить напоминание: "
+  },
+  "尚未请求访问权限": {
+    "en": "Access not requested",
+    "ja": "アクセス未要求",
+    "ru": "Доступ не запрошен"
+  },
+  "访问受限": {
+    "en": "Access restricted",
+    "ja": "アクセス制限あり",
+    "ru": "Доступ ограничен"
+  },
+  "系统设置中已拒绝访问": {
+    "en": "Access denied in System Settings",
+    "ja": "システム設定でアクセスが拒否されています",
+    "ru": "Доступ запрещён в Системных настройках"
+  },
+  "读取日程需要完整访问权限": {
+    "en": "Full access is needed to read events",
+    "ja": "予定の読み込みにはフルアクセスが必要です",
+    "ru": "Для чтения событий нужен полный доступ"
+  },
+  "访问不可用": {
+    "en": "Access unavailable",
+    "ja": "アクセス不可",
+    "ru": "Доступ недоступен"
+  },
+  "此文件已不可用：": {
+    "en": "This file is no longer available: ",
+    "ja": "このファイルは利用できなくなりました：",
+    "ru": "Этот файл больше недоступен: "
+  },
+  "文件不可用，或没有可打开它的应用。": {
+    "en": "The file is unavailable or no application can open it.",
+    "ja": "ファイルを利用できないか、開けるアプリがありません。",
+    "ru": "Файл недоступен или нет приложения, способного его открыть."
+  },
+  "无法打开文件：": {
+    "en": "Could not open file: ",
+    "ja": "ファイルを開けませんでした：",
+    "ru": "Не удалось открыть файл: "
+  },
+  "请打开文件暂存窗口后分享文件。": {
+    "en": "Open the file shelf window to share a file.",
+    "ja": "ファイルを共有するにはシェルフのウインドウを開いてください。",
+    "ru": "Откройте окно полки, чтобы поделиться файлом."
+  },
+  "%ld 个暂存文件当前不可用。": {
+    "en": "Shelf files currently unavailable: %ld.",
+    "ja": "現在利用できないシェルフのファイル：%ld 件。",
+    "ru": "Сейчас недоступно файлов на полке: %ld."
+  },
+  "无法读取已保存的文件暂存：": {
+    "en": "Could not read the saved file shelf: ",
+    "ja": "保存済みのファイルシェルフを読み込めませんでした：",
+    "ru": "Не удалось прочитать сохранённую полку файлов: "
+  },
+  "无法保存文件暂存：": {
+    "en": "Could not save the file shelf: ",
+    "ja": "ファイルシェルフを保存できませんでした：",
+    "ru": "Не удалось сохранить полку файлов: "
+  },
+  "无法分享文件：": {
+    "en": "Could not share file: ",
+    "ja": "ファイルを共有できませんでした：",
+    "ru": "Не удалось поделиться файлом: "
+  },
+  "此音频输出不支持软件音量控制。": {
+    "en": "This audio output does not support software volume control.",
+    "ja": "この音声出力はソフトウェアによる音量調整に対応していません。",
+    "ru": "Этот аудиовыход не поддерживает программную регулировку громкости."
+  },
+  "音频输出拒绝了音量更改。": {
+    "en": "The audio output rejected a volume change.",
+    "ja": "音声出力が音量の変更を拒否しました。",
+    "ru": "Аудиовыход отклонил изменение громкости."
+  },
+  "音频输出未确认音量更改。": {
+    "en": "The audio output did not confirm the volume change.",
+    "ja": "音声出力で音量の変更を確認できませんでした。",
+    "ru": "Аудиовыход не подтвердил изменение громкости."
+  },
+  "此音频输出不支持软件静音。": {
+    "en": "This audio output does not support software mute.",
+    "ja": "この音声出力はソフトウェアによる消音に対応していません。",
+    "ru": "Этот аудиовыход не поддерживает программное отключение звука."
+  },
+  "音频输出拒绝了静音更改。": {
+    "en": "The audio output rejected a mute change.",
+    "ja": "音声出力が消音状態の変更を拒否しました。",
+    "ru": "Аудиовыход отклонил изменение состояния звука."
+  },
+  "音频输出未确认静音更改。": {
+    "en": "The audio output did not confirm the mute change.",
+    "ja": "音声出力で消音状態の変更を確認できませんでした。",
+    "ru": "Аудиовыход не подтвердил изменение состояния звука."
+  },
+  "显示器未确认亮度更改。": {
+    "en": "The display did not confirm the brightness change.",
+    "ja": "ディスプレイで明るさの変更を確認できませんでした。",
+    "ru": "Дисплей не подтвердил изменение яркости."
+  },
+  "公共显示接口不支持此亮度控制。": {
+    "en": "Brightness control is unavailable through the public display API.",
+    "ja": "公開ディスプレイ API ではこの明るさを調整できません。",
+    "ru": "Управление этой яркостью недоступно через публичный API дисплея."
+  },
+  "显示器拒绝了亮度更改。": {
+    "en": "The display rejected a brightness change.",
+    "ja": "ディスプレイが明るさの変更を拒否しました。",
+    "ru": "Дисплей отклонил изменение яркости."
+  },
+  "显示完整标题": {
+    "en": "Show full titles",
+    "ja": "タイトルを省略しない",
+    "ru": "Показывать полные названия"
+  },
+  "允许滚动日历": {
+    "en": "Allow calendar scrolling",
+    "ja": "カレンダーのスクロールを許可",
+    "ru": "Прокрутка календаря"
+  },
+  "扩大文件拖入区域": {
+    "en": "Larger file drop target",
+    "ja": "ファイルのドロップ領域を拡大",
+    "ru": "Увеличить область перетаскивания"
+  },
+  "频谱来自系统播放的声音，每次需要时手动开启。": {
+    "en": "The spectrum uses system playback audio. Start it manually when needed.",
+    "ja": "システムで再生中の音声を分析します。必要なときに手動で開始してください。",
+    "ru": "Спектр строится по системному звуку. Включайте его вручную при необходимости."
+  },
+  "开启声音频谱": {
+    "en": "Start audio spectrum",
+    "ja": "音声スペクトルを開始",
+    "ru": "Включить спектр звука"
+  },
+  "停止声音频谱": {
+    "en": "Stop audio spectrum",
+    "ja": "音声スペクトルを停止",
+    "ru": "Остановить спектр звука"
+  },
+  "设置": {
+    "en": "Settings",
+    "ja": "設定",
+    "ru": "Настройки"
+  },
+  "已停止": {
+    "en": "Stopped",
+    "ja": "停止中",
+    "ru": "Остановлено"
+  },
+  "已禁用": {
+    "en": "Disabled",
+    "ja": "無効",
+    "ru": "Отключено"
+  },
+  "运行中": {
+    "en": "Running",
+    "ja": "実行中",
+    "ru": "Работает"
+  },
+  "需要辅助功能权限": {
+    "en": "Accessibility permission required",
+    "ja": "アクセシビリティの許可が必要です",
+    "ru": "Требуется доступ к Универсальному доступу"
+  },
+  "无法监听程序坞点击，请检查辅助功能和输入监控权限": {
+    "en": "Cannot observe Dock clicks; check Accessibility and Input Monitoring permissions",
+    "ja": "Dock のクリックを監視できません。アクセシビリティと入力監視の許可を確認してください",
+    "ru": "Не удаётся отслеживать нажатия в Dock. Проверьте разрешения Универсального доступа и Мониторинга ввода"
+  },
+  "无法创建点击事件源": {
+    "en": "Could not create the click event source",
+    "ja": "クリックイベントソースを作成できませんでした",
+    "ru": "Не удалось создать источник событий нажатия"
+  },
+  "运行中 · 桌面已切换，已清除窗口组记录": {
+    "en": "Running · Desktop changed; saved window groups cleared",
+    "ja": "実行中 · デスクトップが切り替わり、保存したウインドウグループを消去しました",
+    "ru": "Работает · Рабочий стол сменился; сохранённые группы окон очищены"
+  },
+  "运行中 · 点击事件监听已恢复": {
+    "en": "Running · Click event observation recovered",
+    "ja": "実行中 · クリックイベントの監視を復旧しました",
+    "ru": "Работает · Отслеживание нажатий восстановлено"
+  },
+  "辅助功能权限已被撤销": {
+    "en": "Accessibility permission was revoked",
+    "ja": "アクセシビリティの許可が取り消されました",
+    "ru": "Разрешение Универсального доступа отозвано"
+  },
+  "无法最小化任何已安全匹配的窗口": {
+    "en": "No safely matched windows could be minimized",
+    "ja": "安全に識別できたウインドウを最小化できませんでした",
+    "ru": "Не удалось свернуть ни одно достоверно сопоставленное окно"
+  },
+  "已最小化 %ld 个窗口": {
+    "en": "Windows minimized: %ld",
+    "ja": "最小化したウインドウ：%ld",
+    "ru": "Свёрнуто окон: %ld"
+  },
+  "已恢复 %ld 个窗口": {
+    "en": "Windows restored: %ld",
+    "ja": "復元したウインドウ：%ld",
+    "ru": "Восстановлено окон: %ld"
+  },
+  "；%ld 个窗口未能恢复": {
+    "en": "; %ld window(s) could not be restored",
+    "ja": "。%ld 個のウインドウを復元できませんでした",
+    "ru": "; не удалось восстановить окон: %ld"
+  },
+  "硬件按键提示需要辅助功能权限": {
+    "en": "Accessibility permission required for hardware key HUDs",
+    "ja": "ハードウェアキーの表示にはアクセシビリティの許可が必要です",
+    "ru": "Для индикаторов аппаратных клавиш требуется разрешение Универсального доступа"
+  },
+  "无法监听硬件按键，请检查辅助功能和输入监控权限": {
+    "en": "Hardware key observation unavailable; check Accessibility and Input Monitoring permissions",
+    "ja": "ハードウェアキーを監視できません。アクセシビリティと入力監視の許可を確認してください",
+    "ru": "Не удаётся отслеживать аппаратные клавиши. Проверьте разрешения Универсального доступа и Мониторинга ввода"
+  },
+  "无法创建硬件按键事件源": {
+    "en": "Could not create the hardware key event source",
+    "ja": "ハードウェアキーのイベントソースを作成できませんでした",
+    "ru": "Не удалось создать источник событий аппаратных клавиш"
+  },
+  "运行中 · 硬件按键监听已恢复": {
+    "en": "Running · Hardware key observation recovered",
+    "ja": "実行中 · ハードウェアキーの監視を復旧しました",
+    "ru": "Работает · Отслеживание аппаратных клавиш восстановлено"
+  },
+  "暂停后保留音乐状态": {
+    "en": "Retain music status after pausing",
+    "ja": "一時停止後の音楽表示",
+    "ru": "Показывать музыку после паузы"
+  },
+  "始终保留": {
+    "en": "Always",
+    "ja": "常に表示",
+    "ru": "Всегда"
+  },
+  "15 秒": {
+    "en": "15 seconds",
+    "ja": "15 秒",
+    "ru": "15 секунд"
+  },
+  "30 秒": {
+    "en": "30 seconds",
+    "ja": "30 秒",
+    "ru": "30 секунд"
+  },
+  "1 分钟": {
+    "en": "1 minute",
+    "ja": "1 分",
+    "ru": "1 минута"
+  },
+  "5 分钟": {
+    "en": "5 minutes",
+    "ja": "5 分",
+    "ru": "5 минут"
+  },
+  "隐藏 Real": {
+    "en": "Hide Real",
+    "ja": "Real を隠す",
+    "ru": "Скрыть Real"
+  },
+  "编辑": {
+    "en": "Edit",
+    "ja": "編集",
+    "ru": "Правка"
+  },
+  "撤销": {
+    "en": "Undo",
+    "ja": "取り消す",
+    "ru": "Отменить"
+  },
+  "剪切": {
+    "en": "Cut",
+    "ja": "カット",
+    "ru": "Вырезать"
+  },
+  "复制": {
+    "en": "Copy",
+    "ja": "コピー",
+    "ru": "Копировать"
+  },
+  "粘贴": {
+    "en": "Paste",
+    "ja": "ペースト",
+    "ru": "Вставить"
+  },
+  "全选": {
+    "en": "Select All",
+    "ja": "すべてを選択",
+    "ru": "Выделить всё"
+  },
+  "窗口": {
+    "en": "Window",
+    "ja": "ウインドウ",
+    "ru": "Окно"
+  },
+  "最小化": {
+    "en": "Minimize",
+    "ja": "最小化",
+    "ru": "Свернуть"
+  },
+  "关闭窗口": {
+    "en": "Close Window",
+    "ja": "ウインドウを閉じる",
+    "ru": "Закрыть окно"
+  },
+  "允许播放器控制": {
+    "en": "Allow player control",
+    "ja": "プレーヤーの操作を許可",
+    "ru": "Разрешить управление плеером"
+  },
+  "只会请求控制已经运行的音乐或 Spotify，不会打开播放器。": {
+    "en": "Requests control of Music or Spotify only while they are already running; no player is launched.",
+    "ja": "起動済みのミュージックまたはSpotifyの操作権限のみを要求し、プレーヤーは起動しません。",
+    "ru": "Запрашивается управление только уже запущенными Музыкой или Spotify; плеер не запускается."
+  },
+  "请先打开音乐或 Spotify，再允许播放器控制。": {
+    "en": "Open Music or Spotify first, then allow player control.",
+    "ja": "まずミュージックまたはSpotifyを開いてから、プレーヤーの操作を許可してください。",
+    "ru": "Сначала откройте Музыку или Spotify, затем разрешите управление плеером."
+  },
+  "请在系统提示中允许播放器控制。": {
+    "en": "Allow player control in the system prompt.",
+    "ja": "システムの確認画面でプレーヤーの操作を許可してください。",
+    "ru": "Разрешите управление плеером в системном запросе."
+  },
+  "已允许控制：%@": {
+    "en": "Control allowed: %@",
+    "ja": "操作を許可しました：%@",
+    "ru": "Управление разрешено: %@"
+  },
+  "请在系统设置 → 隐私与安全性 → 自动化中允许 Real 控制 %@，然后点击“允许播放器控制”。": {
+    "en": "Allow Real to control %@ in System Settings → Privacy & Security → Automation, then click “Allow player control”.",
+    "ja": "システム設定 → プライバシーとセキュリティ → オートメーションでrealによる%@の操作を許可してから、「プレーヤーの操作を許可」を押してください。",
+    "ru": "Разрешите Real управлять %@ в Системных настройках → Конфиденциальность и безопасность → Автоматизация, затем нажмите «Разрешить управление плеером»."
+  },
+  "尚未获得 %@ 的自动化权限，请点击“允许播放器控制”。": {
+    "en": "Automation access to %@ has not been granted. Click “Allow player control”.",
+    "ja": "%@のオートメーション権限はまだありません。「プレーヤーの操作を許可」を押してください。",
+    "ru": "Доступ к автоматизации %@ ещё не предоставлен. Нажмите «Разрешить управление плеером»."
+  },
+  "QQ 音乐未提供可验证的播放进度，暂不支持定位或同步歌词。": {
+    "en": "QQ Music does not expose a verified playback position. Seeking and synchronized lyrics are unavailable.",
+    "ja": "QQ Music から正確な再生位置を取得できないため、シークと同期歌詞は利用できません。",
+    "ru": "QQ Music не предоставляет подтверждённую позицию воспроизведения. Перемотка и синхронный текст недоступны."
+  },
+  "QQ 音乐尚未运行。请手动打开 QQ 音乐。": {
+    "en": "QQ Music is not running. Open QQ Music manually.",
+    "ja": "QQ Music が起動していません。手動で開いてください。",
+    "ru": "QQ Music не запущен. Откройте его вручную."
+  },
+  "读取和控制 QQ 音乐需要在系统设置中允许 Real 使用辅助功能。": {
+    "en": "Allow Real in Accessibility settings to read and control QQ Music.",
+    "ja": "QQ Music の情報取得と操作には、システム設定で Real のアクセシビリティを許可してください。",
+    "ru": "Для чтения данных и управления QQ Music разрешите Real доступ в разделе «Универсальный доступ»."
+  },
+  "未能读取 QQ 音乐当前歌曲。请打开其主窗口后重试。": {
+    "en": "Could not read QQ Music's current track. Open its main window and try again.",
+    "ja": "QQ Music の再生中の曲を取得できません。メインウインドウを開いて再試行してください。",
+    "ru": "Не удалось прочитать текущий трек QQ Music. Откройте его главное окно и повторите попытку."
+  },
+  "已读取 QQ 音乐歌曲信息；当前接口不提供播放时间，同步歌词暂不可用。": {
+    "en": "QQ Music track information is available; this interface exposes no playback time, so synchronized lyrics are unavailable.",
+    "ja": "QQ Music の曲情報は取得できましたが、再生時間を取得できないため同期歌詞は利用できません。",
+    "ru": "Информация о треке QQ Music получена, но интерфейс не предоставляет время воспроизведения. Синхронный текст недоступен."
+  },
+  "QQ 音乐未运行或辅助功能权限不可用。": {
+    "en": "QQ Music is not running or Accessibility permission is unavailable.",
+    "ja": "QQ Music が起動していないか、アクセシビリティの許可がありません。",
+    "ru": "QQ Music не запущен или нет разрешения на Универсальный доступ."
+  },
+  "QQ 音乐未提供可用的播放控制按钮，操作未执行。": {
+    "en": "QQ Music has no available playback control button. No action was performed.",
+    "ja": "QQ Music の再生ボタンを利用できないため、操作は実行されませんでした。",
+    "ru": "Кнопка управления воспроизведением QQ Music недоступна. Действие не выполнено."
+  },
+  "正在查找 QQ 音乐歌词…": {
+    "en": "Looking up QQ Music lyrics…",
+    "ja": "QQ Musicの歌詞を検索しています…",
+    "ru": "Поиск текста в QQ Music…"
+  },
+  "同步歌词 · QQ QRC": {
+    "en": "Timed lyrics · QQ QRC",
+    "ja": "同期歌詞 · QQ QRC",
+    "ru": "Синхронизированный текст · QQ QRC"
+  },
+  "同步歌词 · QQ LRC": {
+    "en": "Timed lyrics · QQ LRC",
+    "ja": "同期歌詞 · QQ LRC",
+    "ru": "Синхронизированный текст · QQ LRC"
+  },
+  "自动：QQ 音乐、音乐与 Spotify": {
+    "en": "Automatic: QQ Music, Music and Spotify",
+    "ja": "自動：QQ Music・ミュージック・Spotify",
+    "ru": "Авто: QQ Music, Music и Spotify"
+  },
+  "打开 QQ 音乐开始播放": {
+    "en": "Open QQ Music to start playing",
+    "ja": "QQ Music を開いて再生してください",
+    "ru": "Откройте QQ Music для воспроизведения"
+  },
+  "等待可靠的播放进度": {
+    "en": "Waiting for playback timing",
+    "ja": "再生位置を取得中",
+    "ru": "Ожидание позиции воспроизведения"
+  },
+  "QQ 音乐播放来源已改变，未执行定位。": {
+    "en": "The QQ Music playback source changed. Seeking was not performed.",
+    "ja": "QQ Music の再生元が変わったため、シークしませんでした。",
+    "ru": "Источник воспроизведения QQ Music изменился. Перемотка не выполнена."
+  },
+  "QQ 音乐定位失败，请重试。": {
+    "en": "Could not seek in QQ Music. Please try again.",
+    "ja": "QQ Music のシークに失敗しました。再試行してください。",
+    "ru": "Не удалось перемотать QQ Music. Повторите попытку."
+  },
+  "尚未确认 QQ 音乐定位结果，请检查播放器。": {
+    "en": "The QQ Music seek result could not be confirmed. Check the player.",
+    "ja": "QQ Music のシーク結果を確認できませんでした。プレーヤーを確認してください。",
+    "ru": "Не удалось подтвердить перемотку QQ Music. Проверьте плеер."
+  },
+  "悬浮歌词颜色": {
+    "en": "Floating lyrics color",
+    "ja": "フローティング歌詞の色",
+    "ru": "Цвет плавающего текста песни"
+  },
+  "恢复默认粉色": {
+    "en": "Restore default pink",
+    "ja": "既定のピンクに戻す",
+    "ru": "Вернуть розовый цвет"
+  },
+  "音乐响起，歌词随行": {
+    "en": "Your music, your lyrics",
+    "ja": "音楽に合わせて歌詞を表示",
+    "ru": "Музыка звучит — текст рядом"
+  },
+  "悬浮歌词颜色预览": {
+    "en": "Floating lyrics color preview",
+    "ja": "フローティング歌詞の色プレビュー",
+    "ru": "Предпросмотр цвета текста песни"
+  },
+  "读取 QQ 当前歌曲和歌词，播放控制与窗口控制保持关闭。": {
+    "en": "Read the current QQ track and lyrics. Playback and window controls remain off.",
+    "ja": "QQ の再生中の曲と歌詞を読み込みます。再生・ウインドウ操作は無効のままです。",
+    "ru": "Чтение текущего трека и текста QQ. Управление воспроизведением и окнами отключено."
+  },
+  "打开歌词色盘": {
+    "en": "Open lyrics color palette",
+    "ja": "歌詞のカラーパレットを開く",
+    "ru": "Открыть палитру цвета текста песни"
+  },
+  "需要屏幕录制权限以识别当前桌面的窗口": {
+    "en": "Screen Recording permission is needed to identify windows on the current desktop",
+    "ja": "現在のデスクトップのウインドウを識別するには画面収録の許可が必要です",
+    "ru": "Для определения окон текущего рабочего стола требуется разрешение на запись экрана"
+  },
+  "此权限用于辨认窗口；只有手动开启声音频谱时才启动捕获。": {
+    "en": "This permission identifies windows. Capture starts only when you manually enable the sound spectrum.",
+    "ja": "この許可はウインドウの識別に使用します。キャプチャは音声スペクトラムを手動で有効にした場合のみ開始します。",
+    "ru": "Разрешение используется для распознавания окон. Захват начинается только при ручном включении звукового спектра."
+  },
+  "停止 QQ 歌词预览": {
+    "en": "Stop QQ lyrics preview",
+    "ja": "QQ 歌詞プレビューを停止",
+    "ru": "Остановить предпросмотр текста QQ"
+  },
+  "实时预览 QQ 歌词": {
+    "en": "Preview live QQ lyrics",
+    "ja": "QQ の歌詞をリアルタイムでプレビュー",
+    "ru": "Предпросмотр текущего текста QQ"
+  },
+  "尚未确认 QQ 音乐播放控制结果，请检查播放器。": {
+    "en": "The QQ Music playback command could not be confirmed. Please check the player.",
+    "ja": "QQ Music の再生操作の結果を確認できませんでした。プレーヤーを確認してください。",
+    "ru": "Не удалось подтвердить результат управления воспроизведением QQ Music. Проверьте плеер."
+  },
+  "QQ 音乐": {
+    "en": "QQ Music",
+    "ja": "QQ Music",
+    "ru": "QQ Music"
+  },
+  "网易云音乐": {
+    "en": "NetEase Cloud Music",
+    "ja": "NetEase Cloud Music",
+    "ru": "NetEase Cloud Music"
+  },
+  "自动跟随正在播放的应用": {
+    "en": "Automatically follow the playing app",
+    "ja": "再生中のアプリに自動で切り替える",
+    "ru": "Автоматически следовать за играющим приложением"
+  },
+  "打开音乐播放器开始播放": {
+    "en": "Open a music player to start playback",
+    "ja": "音楽プレーヤーを開いて再生してください",
+    "ru": "Откройте музыкальный плеер для воспроизведения"
+  },
+  "正在查找网易云音乐歌词…": {
+    "en": "Finding NetEase Cloud Music lyrics…",
+    "ja": "NetEase Cloud Music の歌詞を検索中…",
+    "ru": "Поиск текста песни NetEase Cloud Music…"
+  },
+  "纯音乐 · 网易云音乐": {
+    "en": "Instrumental · NetEase Cloud Music",
+    "ja": "インストゥルメンタル · NetEase Cloud Music",
+    "ru": "Инструментальная · NetEase Cloud Music"
+  },
+  "同步歌词 · 网易云音乐": {
+    "en": "Synced lyrics · NetEase Cloud Music",
+    "ja": "同期歌詞 · NetEase Cloud Music",
+    "ru": "Синхронный текст · NetEase Cloud Music"
+  },
+  "自动跟随最近开始播放的应用；全部暂停时，保留最后显示的歌曲。": {
+    "en": "Follow the app that most recently started playback. When all players are paused, keep the last displayed track.",
+    "ja": "最後に再生を開始したアプリに切り替えます。すべて一時停止中の場合は、最後に表示した曲を保持します。",
+    "ru": "Следовать за приложением, которое последним начало воспроизведение. Когда все плееры на паузе, сохранять последнюю показанную песню."
+  },
+  "请在音乐应用中开始播放。Real 使用已有的辅助功能权限读取播放状态并控制播放。": {
+    "en": "Start playback in the music app. Real uses its existing Accessibility permission to read playback status and control playback.",
+    "ja": "音楽アプリで再生を開始してください。Real は既存のアクセシビリティ権限を使用して再生状態の読み取りと操作を行います。",
+    "ru": "Начните воспроизведение в музыкальном приложении. Real использует уже предоставленное разрешение универсального доступа для чтения состояния и управления воспроизведением."
+  },
+  "鼠标移入时自动收起，移开后显示": {
+    "en": "Tucks away when hovered, returns when the pointer leaves",
+    "ja": "マウスを重ねると収納し、離すと再表示します",
+    "ru": "Сворачивается при наведении и появляется после отвода указателя"
+  },
+  "让 Real 收起和恢复应用窗口，并响应硬件按键。": {
+    "en": "Let Real minimize and restore app windows and respond to hardware keys.",
+    "ja": "Real がアプリのウインドウを最小化・復元し、ハードウェアキーに応答できるようにします。",
+    "ru": "Позволяет Real сворачивать и восстанавливать окна приложений и реагировать на аппаратные клавиши."
+  },
+  "用于识别当前桌面的窗口。只有手动开启声音频谱时才启动捕获。": {
+    "en": "Identifies windows on the current desktop. Capture starts only when you manually enable the audio spectrum.",
+    "ja": "現在のデスクトップのウインドウを識別します。キャプチャは音声スペクトラムを手動で有効にした場合にのみ開始します。",
+    "ru": "Используется для распознавания окон текущего рабочего стола. Захват начинается только при ручном включении звукового спектра."
+  },
+  "如果系统仍阻止程序坞点击或硬件按键监听，可补充允许这项权限。": {
+    "en": "Allow this additional permission if the system still blocks Dock clicks or hardware key monitoring.",
+    "ja": "システムが Dock のクリックやハードウェアキーの監視を引き続き制限する場合は、この権限も許可してください。",
+    "ru": "Разрешите этот дополнительный доступ, если система по-прежнему блокирует отслеживание нажатий в Dock или аппаратных клавиш."
+  },
+  "Real 已准备就绪": {
+    "en": "Real is ready",
+    "ja": "Real の準備ができました",
+    "ru": "Real готов к работе"
+  },
+  "让 Real 准备就绪": {
+    "en": "Get Real ready",
+    "ja": "Real の初期設定",
+    "ru": "Настройте Real"
+  },
+  "必要权限已允许，以后打开不会重复询问。": {
+    "en": "Required permissions are allowed. Setup will not appear again when you open Real.",
+    "ja": "必要な権限が許可されました。次回以降、Real を開いてもこの設定は表示されません。",
+    "ru": "Необходимые разрешения предоставлены. При следующих запусках Real эта настройка больше не появится."
+  },
+  "只设置尚未允许的权限，已允许的会自动跳过。": {
+    "en": "Set up only missing permissions. Permissions already allowed are skipped automatically.",
+    "ja": "まだ許可されていない権限だけを設定します。許可済みの権限は自動的にスキップします。",
+    "ru": "Настройте только недостающие разрешения. Уже предоставленные будут автоматически пропущены."
+  },
+  "已允许": {
+    "en": "Allowed",
+    "ja": "許可済み",
+    "ru": "Разрешено"
+  },
+  "当前步骤": {
+    "en": "Current step",
+    "ja": "現在の手順",
+    "ru": "Текущий шаг"
+  },
+  "下一步": {
+    "en": "Next",
+    "ja": "次の手順",
+    "ru": "Далее"
+  },
+  "在系统提示中允许访问；如果打开了系统设置，请开启 Real 旁边的开关。返回后会自动检查。": {
+    "en": "Allow access in the system prompt. If System Settings opens, turn on the switch next to Real. Access will be checked automatically when you return.",
+    "ja": "システムの確認画面でアクセスを許可してください。システム設定が開いた場合は、Real の横にあるスイッチをオンにしてください。戻ると自動で確認します。",
+    "ru": "Разрешите доступ в системном запросе. Если открылись Системные настройки, включите переключатель рядом с Real. При возвращении доступ будет проверен автоматически."
+  },
+  "打开对应设置": {
+    "en": "Open relevant settings",
+    "ja": "該当する設定を開く",
+    "ru": "Открыть нужные настройки"
+  },
+  "检查授权": {
+    "en": "Check access",
+    "ja": "許可を確認",
+    "ru": "Проверить доступ"
+  },
+  "如果系统要求重新打开应用，请按系统提示操作，或使用下方的重新打开按钮。": {
+    "en": "If the system asks you to reopen the app, follow its instructions or use the Reopen button below.",
+    "ja": "システムからアプリの再起動を求められた場合は、その案内に従うか、下の「Real を再起動」ボタンを使ってください。",
+    "ru": "Если система просит перезапустить приложение, следуйте её указаниям или нажмите кнопку перезапуска ниже."
+  },
+  "点击下方按钮后，macOS 会显示授权提示。最终授权需要你亲自确认。": {
+    "en": "Click the button below for the macOS permission prompt. You must confirm the permission yourself.",
+    "ja": "下のボタンをクリックすると、macOS の許可確認が表示されます。最終的な許可はご自身で確認してください。",
+    "ru": "Нажмите кнопку ниже, чтобы открыть запрос разрешения macOS. Подтвердить разрешение нужно самостоятельно."
+  },
+  "日历、提醒事项和镜子等权限，会在你第一次使用对应功能时再申请。": {
+    "en": "Permissions for Calendar, Reminders, Mirror and other features are requested when you first use them.",
+    "ja": "カレンダー、リマインダー、ミラーなどの権限は、各機能を初めて使うときに要求します。",
+    "ru": "Доступ к календарю, напоминаниям, зеркалу и другим функциям будет запрошен при первом использовании соответствующей функции."
+  },
+  "稍后设置": {
+    "en": "Set up later",
+    "ja": "あとで設定",
+    "ru": "Настроить позже"
+  },
+  "重新打开 Real": {
+    "en": "Reopen Real",
+    "ja": "Real を再起動",
+    "ru": "Перезапустить Real"
+  },
+  "开始使用": {
+    "en": "Get started",
+    "ja": "使い始める",
+    "ru": "Начать работу"
+  },
+  "允许并继续": {
+    "en": "Allow and continue",
+    "ja": "許可して続ける",
+    "ru": "Разрешить и продолжить"
+  },
+  "等待系统授权…": {
+    "en": "Waiting for system permission…",
+    "ja": "システムの許可を待っています…",
+    "ru": "Ожидание разрешения системы…"
+  },
+  "授权引导": {
+    "en": "Permission setup",
+    "ja": "権限の設定ガイド",
+    "ru": "Настройка разрешений"
+  },
+  "按需允许": {
+    "en": "Allow as needed",
+    "ja": "必要に応じて許可",
+    "ru": "По необходимости"
+  },
+  "允许访问": {
+    "en": "Allow access",
+    "ja": "アクセスを許可",
+    "ru": "Разрешить доступ"
+  },
+  "无法自动重新打开 Real，请手动退出后再打开。": {
+    "en": "Real could not reopen automatically. Please quit and open it again manually.",
+    "ja": "Real を自動で再起動できませんでした。手動で終了してから、もう一度開いてください。",
+    "ru": "Не удалось автоматически перезапустить Real. Выйдите из приложения и откройте его снова вручную."
+  },
+  "卸载 Real": {
+    "en": "Uninstall Real",
+    "ja": "Real をアンインストール",
+    "ru": "Удаление Real"
+  },
+  "不再使用？可以安全移除应用，并选择是否保留设置。": {
+    "en": "No longer using Real? Safely remove the app and choose whether to keep your settings.",
+    "ja": "Real を使わなくなりましたか？設定を残すかどうかを選んで、アプリを安全に削除できます。",
+    "ru": "Больше не пользуетесь Real? Можно безопасно удалить приложение и выбрать, сохранять ли настройки."
+  },
+  "卸载 Real…": {
+    "en": "Uninstall Real…",
+    "ja": "Real をアンインストール…",
+    "ru": "Удалить Real…"
+  },
+  "请从正在使用的 Real 中卸载；预览不会移除日常版本。": {
+    "en": "Uninstall from the copy of Real you normally use. This preview cannot remove your regular version.",
+    "ja": "普段使っている Real からアンインストールしてください。このプレビューでは通常版は削除されません。",
+    "ru": "Удаляйте Real из той копии, которой обычно пользуетесь. Предварительный просмотр не удалит обычную версию."
+  },
+  "确认后将关闭登录时启动、停止后台，并将当前这份 Real 移到废纸篓。": {
+    "en": "Confirming will disable launch at login, stop background activity, and move this copy of Real to the Trash.",
+    "ja": "確認すると、ログイン時の起動を無効にし、バックグラウンド動作を停止して、この Real をゴミ箱に移動します。",
+    "ru": "После подтверждения запуск при входе будет отключён, фоновая работа остановлена, а эта копия Real перемещена в Корзину."
+  },
+  "同时移除设置、缓存和播放器配对信息": {
+    "en": "Also remove settings, caches, and player pairing information",
+    "ja": "設定、キャッシュ、プレーヤーのペアリング情報も削除",
+    "ru": "Также удалить настройки, кэш и данные сопряжения с плеерами"
+  },
+  "清理会影响这台电脑上使用同一身份的 Real 副本；暂存架只移除文件引用，原文件、导出的诊断和备份都会保留。": {
+    "en": "Cleanup affects copies of Real on this Mac that share the same app identity. Only file references are removed from the shelf; original files, exported diagnostics, and backups are kept.",
+    "ja": "データの削除は、この Mac 上で同じアプリ識別子を使う Real のコピーにも影響します。シェルフからはファイルへの参照だけが削除され、元のファイル、書き出した診断情報、バックアップは保持されます。",
+    "ru": "Очистка затронет копии Real на этом Mac с тем же идентификатором приложения. С полки удаляются только ссылки на файлы; исходные файлы, экспортированная диагностика и резервные копии сохраняются."
+  },
+  "macOS 的隐私权限记录可能仍留在系统设置中。": {
+    "en": "macOS privacy permission records may remain in System Settings.",
+    "ja": "macOS のプライバシー権限の記録は、システム設定に残る場合があります。",
+    "ru": "Записи о разрешениях конфиденциальности macOS могут остаться в Системных настройках."
+  },
+  "在访达中显示 Real": {
+    "en": "Show Real in Finder",
+    "ja": "Real を Finder で表示",
+    "ru": "Показать Real в Finder"
+  },
+  "正在卸载…": {
+    "en": "Uninstalling…",
+    "ja": "アンインストール中…",
+    "ru": "Удаление…"
+  },
+  "取消": {
+    "en": "Cancel",
+    "ja": "キャンセル",
+    "ru": "Отмена"
+  },
+  "卸载并退出": {
+    "en": "Uninstall and Quit",
+    "ja": "アンインストールして終了",
+    "ru": "Удалить и выйти"
+  },
+  "播放器配对信息": {
+    "en": "Player pairing information",
+    "ja": "プレーヤーのペアリング情報",
+    "ru": "Данные сопряжения с плеерами"
+  },
+  "未完成卸载": {
+    "en": "Uninstall incomplete",
+    "ja": "アンインストールが完了しませんでした",
+    "ru": "Удаление не завершено"
+  },
+  "后台功能已恢复；登录时启动已关闭，如有需要请重新开启。": {
+    "en": "Background features have resumed. Launch at login is disabled; turn it on again if needed.",
+    "ja": "バックグラウンド機能は再開しました。ログイン時の起動は無効になっているため、必要に応じて再度有効にしてください。",
+    "ru": "Фоновые функции возобновлены. Запуск при входе отключён; при необходимости включите его снова."
+  },
+  "无法确认当前应用的位置，未移除任何文件。请在访达中手动移除 Real。": {
+    "en": "Could not verify this app's location. No files were removed. Please remove Real manually in Finder.",
+    "ja": "現在のアプリの場所を確認できなかったため、ファイルは削除されていません。Finder で Real を手動で削除してください。",
+    "ru": "Не удалось проверить расположение приложения. Файлы не удалены. Удалите Real вручную через Finder."
+  },
+  "当前应用所在位置不允许移除。请退出 Real 后，在访达中将它移到废纸篓。": {
+    "en": "This app cannot be removed from its current location. Quit Real, then move it to the Trash in Finder.",
+    "ja": "現在の場所からはアプリを削除できません。Real を終了してから、Finder でゴミ箱に移動してください。",
+    "ru": "Приложение нельзя удалить из текущего расположения. Выйдите из Real, затем переместите его в Корзину через Finder."
+  },
+  "Real 已移到废纸篓": {
+    "en": "Real has been moved to the Trash",
+    "ja": "Real をゴミ箱に移動しました",
+    "ru": "Real перемещён в Корзину"
+  },
+  "以下数据未能清理，可稍后在访达或钥匙串访问中移除：": {
+    "en": "The following data could not be removed. You can remove it later in Finder or Keychain Access:",
+    "ja": "次のデータを削除できませんでした。あとで Finder またはキーチェーンアクセスから削除できます：",
+    "ru": "Не удалось удалить следующие данные. Их можно удалить позже через Finder или Связку ключей:"
+  },
+  "已收起 %ld 个窗口": {
+    "en": "Hid %ld windows",
+    "ja": "%ld 個のウインドウを非表示にしました",
+    "ru": "Скрыто окон: %ld"
+  },
+  "程序坞功能已关闭": {
+    "en": "Dock feature is off",
+    "ja": "Dock 機能はオフです",
+    "ru": "Функция Dock выключена"
+  },
+  "程序坞后台运行正常": {
+    "en": "Dock service is running normally",
+    "ja": "Dock サービスは正常に動作しています",
+    "ru": "Служба Dock работает нормально"
+  },
+  "程序坞功能需要权限": {
+    "en": "Dock feature needs permission",
+    "ja": "Dock 機能にアクセス権が必要です",
+    "ru": "Функции Dock требуется разрешение"
+  },
+  "程序坞监听需要修复": {
+    "en": "Dock listener needs repair",
+    "ja": "Dock の監視を修復する必要があります",
+    "ru": "Необходимо восстановить обработчик Dock"
+  },
+  "正在恢复程序坞监听": {
+    "en": "Recovering the Dock listener",
+    "ja": "Dock の監視を復旧しています",
+    "ru": "Восстановление обработчика Dock"
+  },
+  "关闭时不会监听或自动恢复。": {
+    "en": "When off, it does not listen or recover automatically.",
+    "ja": "オフの間は監視も自動復旧も行いません。",
+    "ru": "В выключенном состоянии отслеживание и автоматическое восстановление не выполняются."
+  },
+  "窗口组记录已保留，正常运行不需要重启。": {
+    "en": "Window groups are preserved. No restart is needed while running normally.",
+    "ja": "ウインドウグループは保持されています。正常動作中の再起動は不要です。",
+    "ru": "Группы окон сохранены. При нормальной работе перезапуск не требуется."
+  },
+  "正在有限次数重试；不会操作已有窗口。": {
+    "en": "Retrying a limited number of times without changing existing windows.",
+    "ja": "既存のウインドウを操作せず、回数を制限して再試行しています。",
+    "ru": "Выполняется ограниченное число повторных попыток без изменения открытых окон."
+  },
+  "监听未运行。可点击修复后台监听。": {
+    "en": "The listener is not running. Choose Repair Background Listener.",
+    "ja": "監視が動作していません。「バックグラウンド監視を修復」を選択してください。",
+    "ru": "Обработчик не запущен. Нажмите «Восстановить фоновый обработчик»."
+  },
+  "请在系统设置中允许辅助功能；修复不会自动申请权限。": {
+    "en": "Allow Accessibility in System Settings. Repair does not request permission automatically.",
+    "ja": "システム設定でアクセシビリティを許可してください。修復によって権限を自動要求することはありません。",
+    "ru": "Разрешите Универсальный доступ в Системных настройках. Восстановление не запрашивает разрешение автоматически."
+  },
+  "请在系统设置中允许屏幕录制；修复不会自动申请权限。": {
+    "en": "Allow Screen Recording in System Settings. Repair does not request permission automatically.",
+    "ja": "システム設定で画面収録を許可してください。修復によって権限を自動要求することはありません。",
+    "ru": "Разрешите запись экрана в Системных настройках. Восстановление не запрашивает разрешение автоматически."
+  },
+  "自动恢复已暂停。请点击修复后台监听。": {
+    "en": "Automatic recovery has paused. Choose Repair Background Listener.",
+    "ja": "自動復旧を停止しました。「バックグラウンド監視を修復」を選択してください。",
+    "ru": "Автоматическое восстановление приостановлено. Нажмите «Восстановить фоновый обработчик»."
+  },
+  "监听已暂停，正在准备安全恢复。": {
+    "en": "The listener is paused while preparing safe recovery.",
+    "ja": "安全な復旧の準備のため、監視を一時停止しています。",
+    "ru": "Обработчик приостановлен для подготовки безопасного восстановления."
+  },
+  "无法创建点击监听。请检查权限后修复。": {
+    "en": "Could not create the click listener. Check permissions, then repair.",
+    "ja": "クリックの監視を開始できませんでした。アクセス権を確認してから修復してください。",
+    "ru": "Не удалось создать обработчик нажатий. Проверьте разрешения и выполните восстановление."
+  },
+  "预览模式不会启动或修复后台。": {
+    "en": "Preview mode does not start or repair background services.",
+    "ja": "プレビューモードではバックグラウンドサービスの開始や修復を行いません。",
+    "ru": "Режим предпросмотра не запускает и не восстанавливает фоновые службы."
+  },
+  "检查运行状态": {
+    "en": "Check Status",
+    "ja": "動作状態を確認",
+    "ru": "Проверить состояние"
+  },
+  "修复后台监听": {
+    "en": "Repair Background Listener",
+    "ja": "バックグラウンド監視を修復",
+    "ru": "Восстановить фоновый обработчик"
+  },
+  "排除应用": {
+    "en": "Excluded apps",
+    "ja": "除外するアプリ",
+    "ru": "Исключённые приложения"
+  },
+  "这些应用保留原本的程序坞点击行为。": {
+    "en": "These apps keep their original Dock click behavior.",
+    "ja": "これらのアプリでは元の Dock クリック動作を使用します。",
+    "ru": "Для этих приложений сохраняется обычное поведение щелчка в Dock."
+  },
+  "选择应用…": {
+    "en": "Choose apps…",
+    "ja": "アプリを選択…",
+    "ru": "Выбрать приложения…"
+  },
+  "选择排除的应用": {
+    "en": "Choose excluded apps",
+    "ja": "除外するアプリを選択",
+    "ru": "Выбрать исключённые приложения"
+  },
+  "勾选后立即生效，Real 将不再收起这些应用的窗口。": {
+    "en": "Selections take effect immediately. Real will no longer hide these apps’ windows.",
+    "ja": "選択はすぐに反映され、Real はこれらのアプリのウインドウを収納しなくなります。",
+    "ru": "Изменения действуют сразу. Real больше не будет сворачивать окна выбранных приложений."
+  },
+  "搜索应用名称或标识": {
+    "en": "Search app names or identifiers",
+    "ja": "アプリ名または識別子を検索",
+    "ru": "Поиск по имени или идентификатору приложения"
+  },
+  "清空搜索": {
+    "en": "Clear search",
+    "ja": "検索をクリア",
+    "ru": "Очистить поиск"
+  },
+  "未在应用列表中找到，仍保留此排除项。": {
+    "en": "Not found in the app list. This exclusion is still retained.",
+    "ja": "アプリ一覧にありません。この除外設定は保持されています。",
+    "ru": "Не найдено в списке приложений. Исключение сохранено."
+  },
+  "正在运行": {
+    "en": "Running",
+    "ja": "実行中",
+    "ru": "Запущено"
+  },
+  "正在读取应用列表…": {
+    "en": "Reading the app list…",
+    "ja": "アプリ一覧を読み込み中…",
+    "ru": "Чтение списка приложений…"
+  },
+  "没有找到匹配的应用。": {
+    "en": "No matching apps found.",
+    "ja": "一致するアプリがありません。",
+    "ru": "Подходящие приложения не найдены."
+  },
+  "仅查看应用信息，不会打开应用。": {
+    "en": "Only app information is read. No apps are opened.",
+    "ja": "アプリ情報の読み取りのみを行い、アプリは開きません。",
+    "ru": "Читаются только сведения о приложениях. Приложения не запускаются."
+  },
+  "刷新列表": {
+    "en": "Refresh list",
+    "ja": "一覧を更新",
+    "ru": "Обновить список"
+  },
+  "部分应用未能读取，已有排除项保持不变。可刷新列表重试。": {
+    "en": "Some apps could not be read. Existing exclusions are unchanged. Refresh the list to retry.",
+    "ja": "一部のアプリを読み取れませんでした。既存の除外設定は変更されません。一覧を更新して再試行できます。",
+    "ru": "Не удалось прочитать некоторые приложения. Существующие исключения не изменены. Обновите список для повторной попытки."
+  },
+  "没有找到相关设置。": {
+    "en": "No matching settings found.",
+    "ja": "関連する設定が見つかりません。",
+    "ru": "Подходящие настройки не найдены."
+  },
+  "正在加载歌词…": {
+    "en": "Loading lyrics…",
+    "ja": "歌詞を読み込み中…",
+    "ru": "Загрузка текста…"
+  },
+  "同步歌词已就绪": {
+    "en": "Synced lyrics are ready",
+    "ja": "同期歌詞を表示できます",
+    "ru": "Синхронизированный текст готов"
+  },
+  "这是一首纯音乐。": {
+    "en": "This track is instrumental.",
+    "ja": "この曲はインストゥルメンタルです。",
+    "ru": "Это инструментальная композиция."
+  },
+  "暂未找到这首歌的同步歌词。": {
+    "en": "No synced lyrics were found for this track.",
+    "ja": "この曲の同期歌詞は見つかりませんでした。",
+    "ru": "Синхронизированный текст этой песни не найден."
+  },
+  "歌词暂时不可用，可稍后重试。": {
+    "en": "Lyrics are temporarily unavailable. Try again later.",
+    "ja": "歌詞を一時的に取得できません。後でもう一度お試しください。",
+    "ru": "Текст временно недоступен. Повторите попытку позже."
+  },
+  "暂时无法读取播放进度，显示歌曲信息。": {
+    "en": "Playback timing is temporarily unavailable. Showing track information.",
+    "ja": "再生位置を取得できないため、曲の情報を表示しています。",
+    "ru": "Позиция воспроизведения временно недоступна. Показаны сведения о песне."
+  },
+  "歌词字号": {
+    "en": "Lyrics text size",
+    "ja": "歌詞の文字サイズ",
+    "ru": "Размер текста песни"
+  },
+  "小": {
+    "en": "Small",
+    "ja": "小",
+    "ru": "Маленький"
+  },
+  "标准": {
+    "en": "Standard",
+    "ja": "標準",
+    "ru": "Стандартный"
+  },
+  "大": {
+    "en": "Large",
+    "ja": "大",
+    "ru": "Большой"
+  },
+  "歌词加粗": {
+    "en": "Bold lyrics",
+    "ja": "歌詞を太字にする",
+    "ru": "Жирный текст песни"
+  },
+  "背景深浅": {
+    "en": "Background darkness",
+    "ja": "背景の濃さ",
+    "ru": "Затемнение фона"
+  },
+  "本曲歌词同步": {
+    "en": "This track's lyric timing",
+    "ja": "この曲の歌詞タイミング",
+    "ru": "Синхронизация текста этой песни"
+  },
+  "未调整": {
+    "en": "No adjustment",
+    "ja": "調整なし",
+    "ru": "Без коррекции"
+  },
+  "提前 %.1f 秒": {
+    "en": "%.1f s earlier",
+    "ja": "%.1f 秒早く",
+    "ru": "На %.1f с раньше"
+  },
+  "延后 %.1f 秒": {
+    "en": "%.1f s later",
+    "ja": "%.1f 秒遅く",
+    "ru": "На %.1f с позже"
+  },
+  "提前 0.2 秒": {
+    "en": "0.2 s earlier",
+    "ja": "0.2 秒早く",
+    "ru": "На 0.2 с раньше"
+  },
+  "延后 0.2 秒": {
+    "en": "0.2 s later",
+    "ja": "0.2 秒遅く",
+    "ru": "На 0.2 с позже"
+  },
+  "播放音乐后可调整当前歌曲。": {
+    "en": "Play a track to adjust its lyric timing.",
+    "ja": "曲を再生すると歌詞のタイミングを調整できます。",
+    "ru": "Начните воспроизведение, чтобы настроить синхронизацию текста."
+  },
+  "仅调整歌词显示，不改变播放进度。": {
+    "en": "Adjusts lyric display only; playback position stays unchanged.",
+    "ja": "歌詞の表示だけを調整します。再生位置は変わりません。",
+    "ru": "Меняется только показ текста. Позиция воспроизведения остаётся прежней."
+  },
+  "回到当前句": {
+    "en": "Back to current line",
+    "ja": "現在の歌詞に戻る",
+    "ru": "К текущей строке"
+  },
+  "重试歌词": {
+    "en": "Retry lyrics",
+    "ja": "歌詞を再取得",
+    "ru": "Повторить загрузку текста"
+  },
+  "歌词列表": {
+    "en": "Lyrics list",
+    "ja": "歌詞一覧",
+    "ru": "Текст песни"
+  },
+  "搜索设置": {
+    "en": "Search settings",
+    "ja": "設定を検索",
+    "ru": "Поиск настроек"
+  },
+  "搜索结果": {
+    "en": "Search results",
+    "ja": "検索結果",
+    "ru": "Результаты поиска"
+  },
+  "清除搜索": {
+    "en": "Clear search",
+    "ja": "検索をクリア",
+    "ru": "Очистить поиск"
+  },
+  "高级：手动编辑排除标识": {
+    "en": "Advanced: edit excluded identifiers",
+    "ja": "詳細：除外識別子を編集",
+    "ru": "Дополнительно: изменить исключённые идентификаторы"
+  },
+  "运行自检": {
+    "en": "Runtime check",
+    "ja": "動作チェック",
+    "ru": "Проверка работы"
+  },
+  "播放器": {
+    "en": "Player",
+    "ja": "プレーヤー",
+    "ru": "Проигрыватель"
+  },
+  "播放器连接暂时不可用": {
+    "en": "Player connection is temporarily unavailable",
+    "ja": "プレーヤーに一時的に接続できません",
+    "ru": "Соединение с проигрывателем временно недоступно"
+  },
+  "等待播放器开始播放": {
+    "en": "Waiting for playback",
+    "ja": "再生を待っています",
+    "ru": "Ожидание воспроизведения"
+  },
+  "正在播放": {
+    "en": "Playing",
+    "ja": "再生中",
+    "ru": "Воспроизводится"
+  },
+  "已暂停": {
+    "en": "Paused",
+    "ja": "一時停止中",
+    "ru": "Приостановлено"
+  },
+  "已关闭": {
+    "en": "Off",
+    "ja": "オフ",
+    "ru": "Выключено"
+  },
+  "此测试窗口使用独立设置，后台功能保持关闭。": {
+    "en": "This test window uses separate settings and keeps background services off.",
+    "ja": "このテストウインドウは個別の設定を使用し、バックグラウンド機能は起動しません。",
+    "ru": "Тестовое окно использует отдельные настройки. Фоновые функции выключены."
+  },
+  "重置": {
+    "en": "Reset",
+    "ja": "リセット",
+    "ru": "Сбросить"
+  },
+  "亮度": {
+    "en": "Brightness",
+    "ja": "明るさ",
+    "ru": "Яркость"
+  },
+  "仅演示，不操作其他应用窗口。": {
+    "en": "Demo only. Other app windows stay unchanged.",
+    "ja": "デモのみ。他のアプリのウインドウは操作しません。",
+    "ru": "Только демонстрация. Окна других приложений не изменяются."
+  },
+  "今天": {
+    "en": "Today",
+    "ja": "今日",
+    "ru": "Сегодня"
+  },
+  "出门散步": {
+    "en": "Take a walk",
+    "ja": "散歩に行く",
+    "ru": "Прогулка"
+  },
+  "启用": {
+    "en": "Enable",
+    "ja": "有効",
+    "ru": "Включить"
+  },
+  "图标显示": {
+    "en": "Icons",
+    "ja": "アイコン表示",
+    "ru": "Значки"
+  },
+  "图标的显示与隐藏，不影响后台运行。": {
+    "en": "Showing or hiding icons does not affect background operation.",
+    "ja": "アイコンの表示を変えてもバックグラウンドで動作します。",
+    "ru": "Показ и скрытие значков не влияют на работу в фоне."
+  },
+  "在灵动岛显示音量与亮度变化。": {
+    "en": "Show volume and brightness changes in the island.",
+    "ja": "音量と明るさの変化をアイランドに表示します。",
+    "ru": "Показывать изменения громкости и яркости в островке."
+  },
+  "声音频谱": {
+    "en": "Audio spectrum",
+    "ja": "音声スペクトラム",
+    "ru": "Звуковой спектр"
+  },
+  "尚无可用的日历或提醒列表。": {
+    "en": "No calendars or reminder lists are available yet.",
+    "ja": "利用できるカレンダーやリマインダーのリストはまだありません。",
+    "ru": "Календари и списки напоминаний пока недоступны."
+  },
+  "尚未选择提示内容": {
+    "en": "No indicators selected",
+    "ja": "表示項目が未選択です",
+    "ru": "Индикаторы не выбраны"
+  },
+  "展开": {
+    "en": "Expanded",
+    "ja": "展開",
+    "ru": "Развернуть"
+  },
+  "已完成": {
+    "en": "Completed",
+    "ja": "完了",
+    "ru": "Завершено"
+  },
+  "悬浮歌词": {
+    "en": "Floating lyrics",
+    "ja": "フローティング歌詞",
+    "ru": "Плавающий текст песни"
+  },
+  "拖入文件，随时取用。": {
+    "en": "Drop files here and retrieve them anytime.",
+    "ja": "ファイルをドラッグして、いつでも取り出せます。",
+    "ru": "Перетащите файлы, чтобы быстро использовать их позже."
+  },
+  "拖放行为": {
+    "en": "Drag and drop",
+    "ja": "ドラッグとドロップ",
+    "ru": "Перетаскивание"
+  },
+  "控制播放来源，调整悬浮歌词的显示方式。": {
+    "en": "Choose a playback source and adjust floating lyrics.",
+    "ja": "再生元とフローティング歌詞の表示を調整します。",
+    "ru": "Выберите источник воспроизведения и вид плавающего текста."
+  },
+  "提示内容": {
+    "en": "Indicators",
+    "ja": "表示項目",
+    "ru": "Индикаторы"
+  },
+  "播放器外观": {
+    "en": "Player appearance",
+    "ja": "プレーヤーの外観",
+    "ru": "Внешний вид проигрывателя"
+  },
+  "播放器连接与控制": {
+    "en": "Player connections and controls",
+    "ja": "プレーヤーの接続と操作",
+    "ru": "Подключения и управление проигрывателем"
+  },
+  "收起": {
+    "en": "Collapsed",
+    "ja": "収納",
+    "ru": "Свернуть"
+  },
+  "收起的灵动岛预览": {
+    "en": "Collapsed island preview",
+    "ja": "収納したアイランドのプレビュー",
+    "ru": "Предпросмотр свёрнутого островка"
+  },
+  "整理本周计划": {
+    "en": "Plan the week",
+    "ja": "今週の予定を整理",
+    "ru": "Планы на неделю"
+  },
+  "整理桌面": {
+    "en": "Organize desktop",
+    "ja": "デスクトップを整理",
+    "ru": "Порядок на рабочем столе"
+  },
+  "日程": {
+    "en": "Events",
+    "ja": "予定",
+    "ru": "События"
+  },
+  "显示内容": {
+    "en": "Content",
+    "ja": "表示内容",
+    "ru": "Содержимое"
+  },
+  "暂存文件": {
+    "en": "Staged files",
+    "ja": "一時保管ファイル",
+    "ru": "Временные файлы"
+  },
+  "来源与权限": {
+    "en": "Sources and permissions",
+    "ja": "表示元とアクセス権",
+    "ru": "Источники и разрешения"
+  },
+  "查看运行状态，检查权限与连接。": {
+    "en": "Check background status, permissions, and connections.",
+    "ja": "動作状況、アクセス権、接続を確認します。",
+    "ru": "Проверьте работу в фоне, разрешения и подключения."
+  },
+  "歌词显示与同步": {
+    "en": "Lyric display and timing",
+    "ja": "歌詞の表示と同期",
+    "ru": "Вид и синхронизация текста"
+  },
+  "演示恢复": {
+    "en": "Show restore demo",
+    "ja": "復元をデモ",
+    "ru": "Демонстрация восстановления"
+  },
+  "演示收起": {
+    "en": "Show collapse demo",
+    "ja": "収納をデモ",
+    "ru": "Демонстрация сворачивания"
+  },
+  "灵动岛外观": {
+    "en": "Island appearance",
+    "ja": "アイランドの外観",
+    "ru": "Внешний вид островка"
+  },
+  "灵感图片.png": {
+    "en": "Inspiration.png",
+    "ja": "アイデア.png",
+    "ru": "Идеи.png"
+  },
+  "点击收起": {
+    "en": "Click to collapse",
+    "ja": "クリックで収納",
+    "ru": "Сворачивание по щелчку"
+  },
+  "示例歌曲": {
+    "en": "Example track",
+    "ja": "サンプル曲",
+    "ru": "Пример композиции"
+  },
+  "示意画面 · 未打开摄像头": {
+    "en": "Sample image · Camera is off",
+    "ja": "イメージ図 · カメラはオフ",
+    "ru": "Пример · Камера выключена"
+  },
+  "管理播放器连接与控制…": {
+    "en": "Manage players and controls…",
+    "ja": "プレーヤーの接続と操作を管理…",
+    "ru": "Настроить проигрыватели и управление…"
+  },
+  "设置播放来源、播放器授权与五个控制位置。": {
+    "en": "Configure sources, player access, and five control positions.",
+    "ja": "再生元、プレーヤーの許可、5つの操作位置を設定します。",
+    "ru": "Настройте источники, доступ и пять позиций управления."
+  },
+  "调整灵动岛的展开方式与显示位置。": {
+    "en": "Adjust how and where the island appears.",
+    "ja": "アイランドの展開方法と表示位置を調整します。",
+    "ru": "Настройте раскрытие и положение островка."
+  },
+  "输入关键词查找设置": {
+    "en": "Type a keyword to find a setting",
+    "ja": "キーワードで設定を検索",
+    "ru": "Введите слово для поиска настроек"
+  },
+  "运行与权限": {
+    "en": "Status and permissions",
+    "ja": "動作状況とアクセス権",
+    "ru": "Состояние и разрешения"
+  },
+  "选择你想在灵动岛查看的日程和提醒。": {
+    "en": "Choose events and reminders to show in the island.",
+    "ja": "アイランドに表示する予定とリマインダーを選びます。",
+    "ru": "Выберите события и напоминания для островка."
+  },
+  "通用": {
+    "en": "General",
+    "ja": "一般",
+    "ru": "Основные"
+  },
+  "镜像画面": {
+    "en": "Mirror",
+    "ja": "ミラー画面",
+    "ru": "Зеркало"
+  },
+  "镜子与闲置显示": {
+    "en": "Mirror and idle display",
+    "ja": "ミラーと待機中の表示",
+    "ru": "Зеркало и режим ожидания"
+  },
+  "闲置表情": {
+    "en": "Idle expression",
+    "ja": "待機中の表情",
+    "ru": "Выражение в режиме ожидания"
+  },
+  "阅读时间": {
+    "en": "Reading time",
+    "ja": "読書の時間",
+    "ru": "Время чтения"
+  },
+  "随时查看镜像画面，收起后释放摄像头。": {
+    "en": "Open the mirror anytime. Collapsing releases the camera.",
+    "ja": "いつでもミラーを表示。収納するとカメラを解放します。",
+    "ru": "Открывайте зеркало в любой момент. При сворачивании камера отключается."
+  },
+  "音乐界面示例，不控制实际播放。": {
+    "en": "Player preview. Actual playback is not controlled.",
+    "ja": "音楽画面の例です。実際の再生は操作しません。",
+    "ru": "Предпросмотр проигрывателя без управления воспроизведением."
+  },
+  "项目笔记.pdf": {
+    "en": "Project notes.pdf",
+    "ja": "プロジェクトメモ.pdf",
+    "ru": "Заметки проекта.pdf"
+  }
+}

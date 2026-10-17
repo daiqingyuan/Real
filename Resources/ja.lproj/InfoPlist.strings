@@ -1,0 +1,7 @@
+"NSAppleEventsUsageDescription" = "Real は再生中の曲を読み取り、操作に応じて音楽を制御します。";
+"NSCameraUsageDescription" = "Real はミラーを開いたときだけカメラを使用します。";
+"NSCalendarsFullAccessUsageDescription" = "Real は選択したカレンダーの予定を表示します。";
+"NSRemindersFullAccessUsageDescription" = "Real はリマインダーを表示し、完了にできます。";
+"NSAccessibilityUsageDescription" = "Real はアクセシビリティを使い、クリックしたアプリのウインドウを最小化・復元します。";
+"NSInputMonitoringUsageDescription" = "Real は入力監視を使い、Dock のクリックとシステム操作キーを認識します。";
+"NSAudioCaptureUsageDescription" = "Real はスペクトルを開始したときだけシステム音声を分析します。音声は録音・保存しません。";

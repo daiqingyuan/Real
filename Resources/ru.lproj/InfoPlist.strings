@@ -1,0 +1,7 @@
+"NSAppleEventsUsageDescription" = "Real читает текущую композицию и управляет воспроизведением по вашей команде.";
+"NSCameraUsageDescription" = "Real использует камеру только при открытии зеркала.";
+"NSCalendarsFullAccessUsageDescription" = "Real отображает события выбранных календарей.";
+"NSRemindersFullAccessUsageDescription" = "Real показывает напоминания и позволяет отмечать их выполненными.";
+"NSAccessibilityUsageDescription" = "Real использует Универсальный доступ для сворачивания и восстановления окон выбранного приложения.";
+"NSInputMonitoringUsageDescription" = "Real использует Мониторинг ввода для распознавания нажатий в Dock и системных клавиш.";
+"NSAudioCaptureUsageDescription" = "Real анализирует системный звук только после включения спектра. Звук не записывается и не сохраняется.";
