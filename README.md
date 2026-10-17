@@ -1,6 +1,8 @@
 # Real
 
-Real 是一款 macOS 桌面工具，把程序坞窗口收起、灵动岛、音乐与悬浮歌词整合在一个应用中。
+让 Mac 更顺手。
+
+Real 将程序坞窗口收起与恢复、灵动岛和同步歌词整合在一个轻巧的桌面工具里。音乐、日历提醒与文件暂存，随手就能用。
 
 当前版本：**1.1.0（构建 3）· 紧凑版**。
 
@@ -36,7 +38,7 @@ Real 是一款 macOS 桌面工具，把程序坞窗口收起、灵动岛、音�
 
 ## 第三方组件
 
-第三方许可和来源记录保留在 [Resources/Licenses](Resources/Licenses) 与框架资源中；参见 [THIRD_PARTY.md](THIRD_PARTY.md)。本仓库没有把第三方组件声明为 Real 原创，也未为整个项目额外指定 MIT 或其他统一许可证。
+第三方组件的许可及来源记录见 [THIRD_PARTY.md](THIRD_PARTY.md)、[Resources/Licenses](Resources/Licenses) 和框架资源。
 
 ## 验证范围
 
