@@ -6,7 +6,7 @@ Real 是一款 macOS 桌面工具，把程序坞窗口收起、灵动岛、音�
 
 ## 下载与安装
 
-在本仓库的 [Releases](../../releases) 下载 DMG 或 ZIP。仅支持 **Apple 芯片 Mac、macOS 14 及以上**。
+在本仓库的 [Releases](https://github.com/daiqingyuan/Real/releases) 下载 DMG 或 ZIP。仅支持 **Apple 芯片 Mac、macOS 14 及以上**。
 
 打开 DMG，将 Real.app 拖入“应用程序”，推出映像后从“应用程序”启动。首次使用按引导设置权限。已有用户先退出旧版再替换。
 
