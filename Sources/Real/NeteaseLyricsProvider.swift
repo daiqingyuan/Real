@@ -32,7 +32,20 @@ final class NeteaseLyricsProvider: @unchecked Sendable {
         let uncollected: Bool?
     }
 
-    enum RequestError: Error { case response, oversized }
+    enum RequestError: Error {
+        case response, oversized
+        case http(Int)
+        case service(Int)
+        case throttled(until: Date)
+
+        /// A provider failure is not evidence that a song has no lyrics. The
+        /// caller can keep transient failures out of its negative cache and
+        /// apply this provider-wide deadline before trying a different track.
+        var retryAfter: Date? {
+            if case let .throttled(until) = self { return until }
+            return nil
+        }
+    }
     private let session: URLSession
     private static let maximumBytes = 2_000_000
 
@@ -74,10 +87,12 @@ final class NeteaseLyricsProvider: @unchecked Sendable {
             URLQueryItem(name: "offset", value: "0")
         ])
         let result = try JSONDecoder().decode(SearchResponse.self, from: try await data(for: search))
-        guard result.code == 200 else { return nil }
+        try Task.checkCancellation()
+        guard result.code == 200 else { throw RequestError.service(result.code) }
+        guard let searchResult = result.result else { throw RequestError.response }
         let knownDuration = descriptor.duration.isFinite && descriptor.duration > 0 ? descriptor.duration : nil
         let albumKey = album.map(Self.normalized).flatMap { $0.isEmpty ? nil : $0 }
-        let matches = (result.result?.songs ?? []).filter { song in
+        let matches = (searchResult.songs ?? []).filter { song in
             guard song.id > 0, Self.normalized(song.name) == Self.normalized(descriptor.title),
                   Self.artistsMatch(song.artists.map(\.name), descriptor.artist) else { return false }
             if let albumKey, song.album.map({ Self.normalized($0.name) }) != albumKey { return false }
@@ -96,11 +111,13 @@ final class NeteaseLyricsProvider: @unchecked Sendable {
             URLQueryItem(name: "kv", value: "-1"), URLQueryItem(name: "tv", value: "-1")
         ])
         let lyric = try JSONDecoder().decode(LyricsResponse.self, from: try await data(for: request))
-        guard lyric.code == 200 else { return nil }
+        try Task.checkCancellation()
+        guard lyric.code == 200 else { throw RequestError.service(lyric.code) }
         if lyric.nolyric == true { return Payload(lines: [], source: "NetEase instrumental") }
         guard lyric.uncollected != true else { return nil }
+        guard let originalText = lyric.lrc?.lyric else { throw RequestError.response }
         let duration = knownDuration ?? match.duration.flatMap { $0.isFinite && $0 > 0 ? $0 / 1000 : nil }
-        let originals = LRCParser.parse(lyric.lrc?.lyric ?? "", duration: duration)
+        let originals = LRCParser.parse(originalText, duration: duration)
             .filter { $0.time.isFinite && $0.time >= 0 && (duration == nil || $0.time <= duration! + 2) }
         let nonempty = originals.map { line in
             Self.normalized(line.text).unicodeScalars.filter { CharacterSet.alphanumerics.contains($0) }.map(String.init).joined()
@@ -130,9 +147,14 @@ final class NeteaseLyricsProvider: @unchecked Sendable {
         try Task.checkCancellation()
         let (bytes, response) = try await session.bytes(for: request)
         defer { bytes.task.cancel() }
-        guard let http = response as? HTTPURLResponse, http.statusCode == 200,
-              http.url?.scheme == "https", http.url?.host?.lowercased() == "music.163.com",
-              http.mimeType?.lowercased().contains("json") == true else { throw RequestError.response }
+        try Task.checkCancellation()
+        guard let http = response as? HTTPURLResponse,
+              http.url?.scheme == "https", http.url?.host?.lowercased() == "music.163.com" else { throw RequestError.response }
+        if http.statusCode == 429 || http.statusCode == 503 {
+            throw RequestError.throttled(until: Self.retryDeadline(http.value(forHTTPHeaderField: "Retry-After")))
+        }
+        guard http.statusCode == 200 else { throw RequestError.http(http.statusCode) }
+        guard http.mimeType?.lowercased().contains("json") == true else { throw RequestError.response }
         guard response.expectedContentLength <= Int64(Self.maximumBytes) else { throw RequestError.oversized }
         var data = Data()
         if response.expectedContentLength > 0 { data.reserveCapacity(Int(response.expectedContentLength)) }
@@ -143,6 +165,26 @@ final class NeteaseLyricsProvider: @unchecked Sendable {
         }
         try Task.checkCancellation()
         return data
+    }
+
+    private static func retryDeadline(_ header: String?, now: Date = Date()) -> Date {
+        let value = header?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        let earliest = now.addingTimeInterval(1)
+        if let seconds = Double(value), seconds.isFinite, seconds >= 0 {
+            // Preserve long server deadlines without creating an infinite Date
+            // from malformed/extreme numeric input.
+            let available = max(1, Date.distantFuture.timeIntervalSince(now))
+            return now.addingTimeInterval(min(available, max(1, seconds)))
+        }
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.isLenient = false
+        for format in ["EEE, dd MMM yyyy HH:mm:ss z", "EEEE, dd-MMM-yy HH:mm:ss z", "EEE MMM d HH:mm:ss yyyy"] {
+            formatter.dateFormat = format
+            if let date = formatter.date(from: value) { return max(earliest, date) }
+        }
+        return now.addingTimeInterval(60)
     }
 
     private static func request(path: String, query: [URLQueryItem]) -> URLRequest {

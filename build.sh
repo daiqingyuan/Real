@@ -46,6 +46,8 @@ if $headless_tests; then
 else
   "$app/Contents/MacOS/real" --self-test
 fi
+# Keep the asynchronous lyric recovery suites in every package preflight.
+zsh "$root/Scripts/test-lyrics.sh" "$snapshot"
 archive="$root/build/real-independent.zip"
 if [[ "$identity" == "-" ]]; then archive="$root/build/real-debug-adhoc.zip"; fi
 ditto -c -k --keepParent --norsrc "$app" "$archive"
