@@ -12,6 +12,8 @@ fi
 xcrun swiftc -swift-version 5 -parse-as-library -D LYRICS_RESILIENCE_REGRESSION_RUNNER \
   -module-cache-path "$test_stage/module-cache" \
   "$snapshot_dir/LyricDisplayPolicy.swift" "$snapshot_dir/LyricsService.swift" \
+  "$snapshot_dir/TimedLyricsEnrichment.swift" "$snapshot_dir/TimedLyricsEnrichmentTests.swift" \
+  "$snapshot_dir/NeteaseEnrichmentIntegrationTests.swift" \
   "$snapshot_dir/KaraokeLyricText.swift" "$snapshot_dir/LyricPlaybackClock.swift" \
   "$snapshot_dir/KaraokeParserTests.swift" "$snapshot_dir/KaraokeRenderingTests.swift" "$snapshot_dir/LyricPlaybackClockTests.swift" \
   "$snapshot_dir/KaraokeNativeViewTests.swift" "$snapshot_dir/NeteaseYRCParser.swift" \

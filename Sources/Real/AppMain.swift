@@ -9,6 +9,7 @@ import ServiceManagement
             var failures = runDockPolicyTests() + runLyricsTests() + runPreferencesTests() + runSystemKeyPolicyTests() + runShelfDragPolicyTests() + runAudioSpectrumTests() + runDisplayPolicyTests() + runQQPlaybackTests() + runQQMusicLyricsTests() + runQQMediaAnchorTests() + runMediaSelectionTests() + runSystemServiceTests() + runIslandPolicyTests() + runPermissionTests() + runUninstallTests() + runLayeredPlayerPolicyTests() + runRuntimeHealthTests() + runLyricDisplayTests() + runSettingsUsabilityTests() + runMaturityPreferencesTests()
             failures += runKaraokeParserTests() + runLyricPlaybackClockTests() + runKaraokeRenderingTests()
             failures += runKaraokeNativeViewTests()
+            failures += runTimedLyricsEnrichmentTests()
             if CommandLine.arguments.contains("--self-test-headless") {
                 print("SKIP: native SeekControl UI tests require a desktop session")
             } else { failures += runSeekControlTests() }

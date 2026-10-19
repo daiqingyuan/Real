@@ -13,10 +13,12 @@ struct LyricsRegressionRunner {
         if !resilienceOnly {
             failures += runKaraokeParserTests() + runLyricPlaybackClockTests() + runKaraokeRenderingTests()
             failures += runKaraokeNativeViewTests()
+            failures += runTimedLyricsEnrichmentTests()
             failures += runLyricsTests() + runQQMusicLyricsTests()
             failures += await runQQMusicPipelineTests()
             failures += await runLyricsLifecycleTests()
             failures += await runNeteaseLyricsTests()
+            failures += await runNeteaseEnrichmentIntegrationTests()
         }
         failures += await runLyricsResilienceTests()
         if failures.isEmpty {

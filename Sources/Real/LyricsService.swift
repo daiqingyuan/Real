@@ -62,6 +62,7 @@ final class LyricsService: ObservableObject {
         let lines: [LyricLine]
         let status: String
         var expiresAt = Date.distantFuture
+        var wordEnrichmentRetryAt: Date?
         var availability: LyricsAvailability {
             lines.isEmpty ? (status.hasPrefix("纯音乐") ? .instrumental : .unavailable) : .ready
         }
@@ -84,6 +85,7 @@ final class LyricsService: ObservableObject {
     private var cache: [String: Cached] = [:]
     private var cacheOrder: [String] = []
     private var task: Task<Void, Never>?
+    private var enrichmentInFlightKey: String?
     private var retryTask: Task<Void, Never>?
     private var retryKey: String?
     private var providerStates: [Provider: RetryState] = [:]
@@ -122,6 +124,10 @@ final class LyricsService: ObservableObject {
         let duration = duration.isFinite ? max(0, duration) : 0
         let key = "\(sourceBundleIdentifier ?? "")\u{0}\(title)\u{0}\(artist)\u{0}\(duration.rounded())\u{0}\(album)"
         if activeKey == key {
+            if let cached = cache[key], cached.expiresAt > now() {
+                resumeWordEnrichmentIfNeeded()
+                return
+            }
             // Missing results are short-lived. A later metadata refresh or
             // revisit must not keep an old empty catalog response forever.
             guard let cached = cache[key], cached.expiresAt <= now() else { return }
@@ -129,6 +135,7 @@ final class LyricsService: ObservableObject {
             resetRetryCycle(for: key)
         }
         task?.cancel()
+        enrichmentInFlightKey = nil
         retryTask?.cancel(); retryTask = nil
         if retryKey != key { resetRetryCycle(for: key) }
         generation = UUID()
@@ -147,6 +154,7 @@ final class LyricsService: ObservableObject {
             lines = cached.lines
             availability = cached.availability
             status = tr(cached.status)
+            resumeWordEnrichmentIfNeeded()
             return
         }
         forget(key)
@@ -163,10 +171,16 @@ final class LyricsService: ObservableObject {
                         if let payload = try await neteaseProvider.fetch(for: descriptor, album: album) {
                             try Task.checkCancellation()
                             guard generation == requestGeneration else { return }
-                            let result = Cached(lines: payload.lines, status: payload.source == "NetEase instrumental"
-                                ? "纯音乐 · 网易云音乐" : "同步歌词 · 网易云音乐")
+                            var result = Cached(lines: payload.lines, status: payload.source == "NetEase instrumental"
+                                ? "纯音乐 · 网易云音乐" : (NeteaseYRCParser.hasWordTimings(payload.lines)
+                                    ? "逐字歌词 · 网易云音乐" : "同步歌词 · 网易云音乐"))
+                            if payload.source == "NetEase LRC", descriptor.duration > 0,
+                               payload.lines.filter({ !$0.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }).count >= 4 {
+                                result.wordEnrichmentRetryAt = .distantPast
+                            }
                             lines = result.lines; availability = result.availability; status = tr(result.status)
                             remember(result, for: key)
+                            try await enrichNetEaseWords(descriptor, key: key, generation: requestGeneration)
                             return
                         }
                         try Task.checkCancellation()
@@ -282,6 +296,59 @@ final class LyricsService: ObservableObject {
                 recordFailure(error, provider: .lrclib)
                 finishUnsuccessfulAttempt(descriptor, album: album, key: key, generation: requestGeneration)
             }
+        }
+    }
+
+    /// Cached native LRC remains immediately usable. A cancelled probe leaves
+    /// it eligible on revisit; transient errors and provider throttling defer
+    /// just the optional word lookup instead of caching its absence forever.
+    private func resumeWordEnrichmentIfNeeded() {
+        guard let request = currentRequest, enrichmentInFlightKey != request.cacheKey,
+              let deadline = cache[request.cacheKey]?.wordEnrichmentRetryAt, deadline <= now() else { return }
+        let token = generation
+        task?.cancel()
+        task = Task { [weak self] in
+            guard let self else { return }
+            try? await self.enrichNetEaseWords(request.descriptor, key: request.cacheKey, generation: token)
+        }
+    }
+
+    private func enrichNetEaseWords(_ descriptor: QQTrackDescriptor, key: String,
+                                    generation token: UUID) async throws {
+        guard descriptor.sourceBundleIdentifier?.lowercased() == "com.netease.163music",
+              generation == token, activeKey == key, enrichmentInFlightKey != key,
+              let baseline = cache[key], let deadline = baseline.wordEnrichmentRetryAt, deadline <= now() else { return }
+        try Task.checkCancellation()
+        // This is a later optional enrichment cycle for already usable lyrics,
+        // bounded by its own 60/600-second cache deadline. Replenish that single
+        // attempt without resetting the provider-wide server Retry-After.
+        providerStates.removeValue(forKey: .qq)
+        guard beginAttempt(.qq) else {
+            cache[key]?.wordEnrichmentRetryAt = max(now().addingTimeInterval(60), providerRetryAfter[.qq] ?? .distantPast)
+            return
+        }
+        enrichmentInFlightKey = key
+        defer { if generation == token { enrichmentInFlightKey = nil } }
+        do {
+            let alternate = try await qqProvider.fetchWordTimingsForMatchingRecording(for: descriptor)
+            try Task.checkCancellation()
+            guard generation == token, activeKey == key else { return }
+            if let alternate, let enriched = TimedLyricsEnrichment.enrich(authoritative: baseline.lines,
+                    candidate: alternate.lines, duration: descriptor.duration) {
+                let timed = Cached(lines: enriched, status: "逐字歌词 · 网易云音乐（备用）")
+                lines = timed.lines; availability = timed.availability; status = tr(timed.status)
+                remember(timed, for: key)
+            } else {
+                // A real but unusable result needs no repeated requests on
+                // every play/pause event; a later revisit can check again.
+                cache[key]?.wordEnrichmentRetryAt = now().addingTimeInterval(600)
+            }
+        } catch is CancellationError { throw CancellationError() }
+        catch {
+            try Task.checkCancellation()
+            guard generation == token, activeKey == key else { return }
+            recordFailure(error, provider: .qq)
+            cache[key]?.wordEnrichmentRetryAt = max(now().addingTimeInterval(60), providerRetryAfter[.qq] ?? .distantPast)
         }
     }
 

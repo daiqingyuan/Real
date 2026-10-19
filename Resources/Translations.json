@@ -2373,5 +2373,15 @@
     "en": "Lyric highlight color",
     "ja": "歌詞のハイライト色",
     "ru": "Цвет подсветки текста"
+  },
+  "逐字歌词 · 网易云音乐": {
+    "en": "Word-timed lyrics · NetEase Cloud Music",
+    "ja": "逐字同期歌詞 · NetEase Cloud Music",
+    "ru": "Пословный текст · NetEase Cloud Music"
+  },
+  "逐字歌词 · 网易云音乐（备用）": {
+    "en": "Word-timed lyrics · NetEase Cloud Music (alternate timings)",
+    "ja": "逐字同期歌詞 · NetEase Cloud Music（補助タイミング）",
+    "ru": "Пословный текст · NetEase Cloud Music (резервные тайминги)"
   }
 }

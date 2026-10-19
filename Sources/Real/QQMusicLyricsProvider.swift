@@ -122,6 +122,28 @@ final class QQMusicLyricsProvider: @unchecked Sendable {
         return nil
     }
 
+    /// Optional word-timing enrichment for another player's verified recording.
+    /// This never changes the ordinary QQ-only lookup policy. The caller must
+    /// additionally align this result against that player's authoritative lyrics.
+    func fetchWordTimingsForMatchingRecording(for descriptor: QQTrackDescriptor) async throws -> Payload? {
+        guard descriptor.sourceBundleIdentifier?.lowercased() == "com.netease.163music",
+              descriptor.duration.isFinite, descriptor.duration > 0 else { return nil }
+        let query = QQTrackDescriptor(sourceBundleIdentifier: nil, title: descriptor.title,
+                                      artist: descriptor.artist, duration: descriptor.duration)
+        return try await withThrowingTaskGroup(of: Payload?.self) { group in
+            group.addTask { [self] in
+                guard let match = try await searchSong(query), let id = match.songID, id > 0 else { return nil }
+                return try await QQMusicQRCLyricsProvider(transport: self).fetchLyrics(for: query, match: match)
+            }
+            group.addTask {
+                try await Task.sleep(nanoseconds: 12_000_000_000)
+                throw URLError(.timedOut)
+            }
+            defer { group.cancelAll() }
+            return try await group.next() ?? nil
+        }
+    }
+
     func fetchWithQRCFallback(for descriptor: QQTrackDescriptor) async throws -> Payload? {
         guard descriptor.acceptsQQ else { return nil }
         // Bound all QQ probes together, then allow the caller to try LRCLIB.

@@ -226,6 +226,7 @@ import ServiceManagement
             "musicEnabled: \(preferences.enabled("music")), lyricsEnabled: \(preferences.enabled("lyrics"))\n" +
             "qqTiming: \(qq.hasTiming), playing: \(qq.isPlaying), lyricLines: \(lyrics.lines.count)\n" +
             "neteaseTiming: \(netease.hasTiming), playing: \(netease.isPlaying)\n" +
+            "wordTimedLyricLines: \(lyrics.lines.filter { !$0.words.isEmpty }.count), lyricWordSpans: \(lyrics.lines.reduce(0) { $0 + $1.words.count })\n" +
             "mediaReaderError: \(media.errorMessage != nil)\n" +
             "qqReaderError: \(qq.errorMessage != nil), neteaseReaderError: \(netease.errorMessage != nil)\n" +
             "excludedApplicationCount: \(ApplicationExclusions.identifiers(in: preferences.excludedApps).count)\n" +
