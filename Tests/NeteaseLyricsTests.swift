@@ -52,7 +52,44 @@ private final class NeteaseFixtureProtocol: URLProtocol, @unchecked Sendable {
             } else {
                 var lyrics: [String: Any] = ["code": 200, "lrc": ["lyric": "[00:01]Synthetic first\n[00:03]Synthetic second\n[00:05]Synthetic third"],
                                           "tlyric": ["lyric": "[00:03]Second translation\n[00:05.15]Third translation"]]
+                let yrc = """
+                {"t":0,"c":[{"tx":"Synthetic metadata"}]}
+                [2200,1700](2200,600,0)Synthetic (2800,200,0)first(3000,900,0)!
+                [5200,1300](5200,500,0)Synthetic (5700,800,0)second
+                [8200,1500](8200,1500,0)Synthetic third
+                """
+                if scenario.hasPrefix("yrc") || scenario.hasSuffix("YRC") {
+                    lyrics["yrc"] = ["lyric": yrc]
+                    lyrics["ytlrc"] = ["lyric": "[00:05.20]Second YRC translation\n[00:08.35]Third YRC translation"]
+                }
                 switch scenario {
+                case "yrcNoLegacy": lyrics.removeValue(forKey: "lrc")
+                case "yrcEmpty": lyrics["yrc"] = ["lyric": ""]
+                case "yrcNull": lyrics["yrc"] = NSNull()
+                case "yrcWrongType": lyrics["yrc"] = "bad optional shape"
+                case "yrcBadLyric": lyrics["yrc"] = ["lyric": 42]
+                case "yrcMissingLyric": lyrics["yrc"] = [:]
+                case "yrcNullLyric": lyrics["yrc"] = ["lyric": NSNull()]
+                case "yrcMalformed": lyrics["yrc"] = ["lyric": "not synchronized YRC"]
+                case "yrcBadHeader": lyrics["yrc"] = ["lyric": "[1000,1000](1000,1000,0)One\n[damaged]Two"]
+                case "yrcUnclosedWord": lyrics["yrc"] = ["lyric": "[1000,2000](1000,1000,0)One(2000,500,0broken"]
+                case "yrcAllInvalid": lyrics["yrc"] = ["lyric": "[1000,1000](1000,0,0)Sung word"]
+                case "yrcOutOfDuration": lyrics["yrc"] = ["lyric": "[13000,1000](13000,1000,0)Outside"]
+                case "yrcPunctuationOnly": lyrics["yrc"] = ["lyric": "[1000,1000](1000,0,0) !(1000,1000,0)，"]
+                case "yrcMixedInvalid": lyrics["yrc"] = ["lyric": "[2200,1700](2200,1700,0)Synthetic first\n[5200,1300](5200,0,0)Synthetic second"]
+                case "yrcUnknownLeadIn": lyrics["yrc"] = ["lyric": "[2200,1700](2200,0,0)啊～(2600,500,0)Some(3100,800,0) words\n[5200,1300](5200,0,0)Oh"]
+                case "yrcRoundingEnd": lyrics["yrc"] = ["lyric": "[2200,1699](2200,600,0)first(2800,1100,0)last"]
+                case "yrcPastRoundingBound": lyrics["yrc"] = ["lyric": "[2200,1697](2200,600,0)first(2800,1100,0)last"]
+                case "yrcWrongTranslation": lyrics["ytlrc"] = ["lyric": 42]
+                case "yrcWrongTranslationShape": lyrics["ytlrc"] = "bad optional shape"
+                case "yrcMissingTranslationLyric": lyrics["ytlrc"] = [:]
+                case "yrcNullTranslation": lyrics["ytlrc"] = NSNull()
+                case "yrcNoTranslation": lyrics.removeValue(forKey: "ytlrc")
+                case "yrcEmptyTranslation": lyrics["ytlrc"] = ["lyric": ""]
+                case "yrcTranslationTie": lyrics["ytlrc"] = ["lyric": "[00:05.10]One\n[00:05.30]Two"]
+                case "instrumentalYRC": lyrics["nolyric"] = true
+                case "instrumentalNoticeYRC": lyrics["lrc"] = ["lyric": "[00:01]纯音乐，请欣赏"]
+                case "uncollectedYRC": lyrics["uncollected"] = true
                 case "emptyLyrics": lyrics = ["code": 200, "lrc": ["lyric": ""]]
                 case "plainLyrics": lyrics = ["code": 200, "lrc": ["lyric": "Synthetic untimed text"]]
                 case "instrumental": lyrics = ["code": 200, "nolyric": true]
@@ -120,17 +157,158 @@ func runNeteaseLyricsTests() async -> [String] {
         defer { session.invalidateAndCancel() }
         return try await NeteaseLyricsProvider(session: session).fetch(for: value ?? descriptor(), album: album)
     }
+
+    let unicodeText = " 你👩🏽‍💻e\u{301}，  好! "
+    let unicode = NeteaseYRCParser.parse("[1000,3000](1000,500,0) 你(1500,500,0)👩🏽‍💻(2000,500,0)e\u{301}(2500,0,0)，(2500,1500,0)  好! ")
+    expect(unicode.count == 1 && unicode.first?.text == unicodeText && unicode.first?.words.count == 5,
+           "YRC preserves edge/internal whitespace, punctuation, emoji modifiers/ZWJ, and combining characters")
+    expect(unicode.first?.timing == .wordAnnotated, "YRC retains word-annotation provenance")
+    if let line = unicode.first, line.words.count == 5 {
+        let fragments = line.words.map { (line.text as NSString).substring(with: $0.range) }
+        expect(fragments == [" 你", "👩🏽‍💻", "e\u{301}", "，", "  好! "], "YRC ranges use exact displayed UTF-16 substrings")
+        expect(line.words.map(\.utf16Location) == [0, 2, 9, 11, 12], "YRC UTF-16 locations do not count graphemes as code units")
+        expect(line.time == 1 && line.endTime == 4 && line.words[1].startTime == 1.5 && line.words[1].duration == 0.5,
+               "YRC prefix word starts are absolute milliseconds, independently of the line start")
+        expect(line.words[3].duration == 0 && line.words[4].startTime == 2.5,
+               "zero-duration punctuation is an instantaneous provider token")
+    }
+    let parenthetical = NeteaseYRCParser.parse("[1000,2000](1000,2000,0)hello (world, friend)")
+    expect(parenthetical.first?.text == "hello (world, friend)" && parenthetical.first?.words.count == 1,
+           "ordinary lyric parentheticals survive YRC annotation removal")
+    let metadata = NeteaseYRCParser.parse("{\"t\":0,\"c\":[{\"tx\":\"credit\",\"or\":\"do not open\"}]}\n[3000,1000](3000,1000,0)Later\n[1000,1000](1000,1000,0)Earlier")
+    expect(metadata.map(\.text) == ["Earlier", "Later"] && metadata.map(\.id) == [0, 1],
+           "JSON metadata is ignored and YRC rows receive stable sorted IDs")
+    let punctuation = NeteaseYRCParser.parse("[1000,1000](1000,500,0)Hello(1500,0,0) ，—  (1500,500,0)world")
+    expect(punctuation.first?.text == "Hello ，—  world" && punctuation.first?.words.count == 3,
+           "zero-duration whitespace and Unicode punctuation preserve the following word")
+    for text in ["sung", "123", "©", "🙂", "a\u{301}"] {
+        let result = NeteaseYRCParser.parse("[1000,1000](1000,0,0)" + text)
+        expect(result.first?.text == text && result.first?.words.isEmpty == true,
+               "zero-duration sung letters/numbers/symbols/emoji retain text without word timing: \(text)")
+        expect(result.first?.timing == .wordAnnotated, "unknown zero-duration singing cannot become sentence-timed fallback")
+    }
+    for (input, text, timed) in [
+        ("[1000,2000](1000,1000,0)first(1500,500,0)second", "firstsecond", ["first"]),
+        ("[1000,2000](2000,500,0)first(1000,500,0)second", "firstsecond", ["first"]),
+        ("[1000,2000](999,100,0)early(1100,400,0)later", "earlylater", ["later"]),
+        ("[1000,2000](1000,2500,0)outside", "outside", []),
+        ("[1000,2000](1000,NaN,0)bad", "bad", []),
+        ("[1000,2000](-1000,500,0)bad", "bad", []),
+        ("[1000,2000](1000,inf,0)bad", "bad", []),
+        ("[1000,2000](1000,1e3,0)bad", "bad", []),
+        ("[1000,2000](1000.5,500,0)bad", "bad", []),
+        ("[1000,2000](1000,,0)bad", "bad", []),
+        ("[1000,2000](1000,500)bad", "bad", []),
+        ("[1000,2000](1000,500,0,0)bad", "bad", []),
+        ("[1000,2000](1000,500,NaN)bad", "bad", []),
+        ("[1000,2000](1000,500,18446744073709551616)bad", "bad", []),
+        ("[1000,2000](1000,999999999999999999999999,0)bad", "bad", []),
+        ("[1000,2000]prefix(1000,1000,0)body", "prefixbody", ["body"]),
+        ("[1000,2000](1000,1000,0)e(2000,1000,0)\u{301}", "e\u{301}", []),
+        ("[1000,2000](1000,1000,0)👩(2000,1000,0)\u{200D}💻", "👩\u{200D}💻", []),
+        ("[1000,2000]plain untimed row", "plain untimed row", []),
+        ("[1000,3000]prefix(1000,0,0)啊(1500,1000,0)hello(2500,NaN,0)bad(3000,1000,0)later", "prefix啊hellobadlater", ["hello", "later"]),
+        ("[1000,3000](1000,9999,0)bad(1500,500,0)good(2000,NaN,0)bad(2200,500,0)later", "badgoodbadlater", ["good", "later"]),
+        ("[1000,3000](1000,2000,0)e(2000,100,0)\u{301}(2100,1000,0)later", "e\u{301}later", ["later"])
+    ] {
+        let result = NeteaseYRCParser.parse(input)
+        expect(result.count == 1 && result.first?.text == text && result.first?.timing == .wordAnnotated,
+               "YRC keeps readable text and annotation provenance around unknown spans: \(input)")
+        if let line = result.first {
+            expect(line.words.map { (line.text as NSString).substring(with: $0.range) } == timed,
+                   "malformed/overlapping/grapheme-split spans leave independently valid words usable: \(input)")
+        }
+    }
+    for extraMS in 0...3 {
+        let result = NeteaseYRCParser.parse("[1000,1000](1000,500,0)A(1500,\(500 + extraMS),0)B")
+        let accepted = extraMS <= 2
+        expect(result.first?.words.count == (accepted ? 2 : 1), "YRC end rounding accepts at most two milliseconds: \(extraMS)")
+        expect(abs((result.first?.endTime ?? 0) - (accepted ? Double(2000 + extraMS) / 1000 : 2)) < 0.000_000_1,
+               "only accepted rounding expands the YRC line end: \(extraMS)")
+        if accepted, let last = result.first?.words.last {
+            expect(last.startTime == 1.5 && last.duration == Double(500 + extraMS) / 1000,
+                   "YRC rounding retains the exact provider word interval")
+        }
+    }
+    for input in ["", "{\"t\":0,\"c\":[]}", "not YRC", "[1000,0](1000,0,0)zero line", "[bad]row",
+                  "[604800000,1](604800000,1,0)too late", "[1000,999999999999999999999999]huge",
+                  "[1000,1000](1000,1000,0)good\n[damaged]bad",
+                  "[1000,2000](1000,1000,0)good(2000,500,0broken"] {
+        expect(NeteaseYRCParser.parse(input).isEmpty, "empty, metadata-only, unbounded or malformed YRC rejects enrichment: \(input)")
+    }
+    expect(NeteaseYRCParser.parse("[13000,1000](13000,1000,0)too late", duration: 10).isEmpty,
+           "YRC line intervals stay within the known track duration plus matching tolerance")
+    expect(NeteaseYRCParser.parse(String(repeating: "x", count: 2_000_001)).isEmpty, "YRC parser bounds direct input size")
     do {
         let normal = try await fetch("normal")
         expect(normal?.source == "NetEase LRC" && normal?.lines.count == 3, "exact normalized title, artist set, and duration load timed lyrics")
         expect(normal?.lines.first?.translation == nil && normal?.lines[1].translation == "Second translation"
                && normal?.lines.last?.translation == "Third translation", "sparse translations align by timestamp, including small rounding drift")
         expect(normal?.lines.last?.endTime == 10, "last line ends at the known player duration")
+        expect(normal?.lines.allSatisfy({ $0.timing == .sentence }) == true, "legacy LRC retains genuine sentence timing")
         let requests = NeteaseFixtureProtocol.requests()
         expect(requests.map { $0.url?.path } == ["/api/search/get", "/api/song/lyric"], "one search and one lyric request only")
         expect(requests.allSatisfy { $0.url?.host == "music.163.com" && $0.url?.scheme == "https"
             && $0.value(forHTTPHeaderField: "Cookie") == nil && $0.value(forHTTPHeaderField: "Authorization") == nil
             && !$0.httpShouldHandleCookies }, "requests stay anonymous on the official HTTPS host")
+        let query = requests.last.flatMap { URLComponents(url: $0.url!, resolvingAgainstBaseURL: false)?.queryItems } ?? []
+        expect(query.count == 5 && query.contains(URLQueryItem(name: "yv", value: "-1"))
+               && ["lv", "kv", "tv"].allSatisfy { query.contains(URLQueryItem(name: $0, value: "-1")) },
+               "YRC adds only yv=-1 while retaining the same anonymous legacy lyric GET")
+        expect(requests.allSatisfy { $0.httpMethod == "GET" && $0.httpBody == nil
+            && $0.value(forHTTPHeaderField: "Accept") == "application/json"
+            && $0.value(forHTTPHeaderField: "User-Agent") == "Real/1.0.0"
+            && $0.value(forHTTPHeaderField: "Referer") == "https://music.163.com/" }, "YRC needs no new headers, body, or transport")
+        let yrc = try await fetch("yrc")
+        expect(yrc?.source == "NetEase YRC" && yrc?.lines.count == 3 && yrc?.lines.first?.time == 2.2
+               && yrc?.lines.first?.text == "Synthetic first!" && yrc?.lines.first?.words.count == 3,
+               "usable YRC replaces the LRC timeline using prefix word annotations")
+        expect(yrc?.lines[1].time == 5.2 && yrc?.lines[1].endTime == 6.5
+               && yrc?.lines[1].words.first?.startTime == 5.2 && yrc?.lines.last?.endTime == 9.7,
+               "YRC keeps provider line intervals and absolute word starts, without legacy row attachment")
+        expect(yrc?.lines.first?.translation == nil && yrc?.lines[1].translation == "Second YRC translation"
+               && yrc?.lines.last?.translation == "Third YRC translation", "sparse YTLRC aligns by YRC timestamps including small drift")
+        expect(yrc?.lines.allSatisfy({ $0.timing == .wordAnnotated }) == true, "YTLRC merging preserves original word timing provenance")
+        expect(NeteaseFixtureProtocol.requests().map { $0.url?.path } == ["/api/search/get", "/api/song/lyric"],
+               "YRC adds no endpoint or request beyond the legacy search/lyric pair")
+        let yrcOnly = try await fetch("yrcNoLegacy")
+        expect(yrcOnly?.source == "NetEase YRC" && yrcOnly?.lines.first?.words.count == 3,
+               "valid YRC can supply original lyrics independently when legacy LRC is absent")
+        for scenario in ["yrcEmpty", "yrcNull", "yrcWrongType", "yrcBadLyric", "yrcMissingLyric", "yrcNullLyric",
+                         "yrcMalformed", "yrcBadHeader", "yrcUnclosedWord", "yrcAllInvalid", "yrcOutOfDuration", "yrcPunctuationOnly"] {
+            let fallback = try await fetch(scenario)
+            expect(fallback?.source == "NetEase LRC" && fallback?.lines == normal?.lines,
+                   "\(scenario) leaves valid legacy lyrics/translations unchanged")
+            expect(NeteaseFixtureProtocol.requests().count == 2, "\(scenario) fallback stays within one lyric request")
+        }
+        let mixed = try await fetch("yrcMixedInvalid")
+        expect(mixed?.source == "NetEase YRC" && mixed?.lines.count == 2 && mixed?.lines.first?.words.count == 1
+               && mixed?.lines.last?.text == "Synthetic second" && mixed?.lines.last?.words.isEmpty == true,
+               "a bad sung-word duration retains that row as plain text beside valid word-timed YRC rows")
+        expect(mixed?.lines.last?.timing == .wordAnnotated && mixed?.lines.last?.translation == "Second YRC translation",
+               "translated unknown YRC singing cannot silently acquire sentence timing")
+        let leadIn = try await fetch("yrcUnknownLeadIn")
+        expect(leadIn?.source == "NetEase YRC" && leadIn?.lines.first?.text == "啊～Some words"
+               && leadIn?.lines.first?.words.count == 2 && leadIn?.lines.first?.words.first?.startTime == 2.6
+               && leadIn?.lines.first?.words.first?.utf16Location == 2,
+               "unknown zero-duration lead-in vowels stay uncolored while later verified YRC words remain usable")
+        expect(leadIn?.lines.last?.text == "Oh" && leadIn?.lines.last?.words.isEmpty == true
+               && leadIn?.lines.last?.timing == .wordAnnotated, "an all-unknown ad-lib row retains YRC provenance beside timed rows")
+        let rounded = try await fetch("yrcRoundingEnd")
+        expect(rounded?.source == "NetEase YRC" && rounded?.lines.first?.words.count == 2 && rounded?.lines.first?.endTime == 3.9,
+               "a one-millisecond YRC header rounding difference retains the final word and expands its line end")
+        let outsideRounding = try await fetch("yrcPastRoundingBound")
+        expect(outsideRounding?.source == "NetEase YRC" && outsideRounding?.lines.first?.words.count == 1
+               && outsideRounding?.lines.first?.text == "firstlast" && outsideRounding?.lines.first?.endTime == 3.897,
+               "beyond-tolerance final words remain white without discarding earlier verified YRC timing")
+        for scenario in ["yrcWrongTranslation", "yrcWrongTranslationShape", "yrcMissingTranslationLyric", "yrcNullTranslation", "yrcNoTranslation", "yrcEmptyTranslation"] {
+            let untranslated = try await fetch(scenario)
+            expect(untranslated?.source == "NetEase YRC" && untranslated?.lines.allSatisfy({ !$0.words.isEmpty && $0.translation == nil }) == true,
+                   "\(scenario) preserves valid YRC without attaching unrelated legacy translation rows")
+        }
+        let tied = try await fetch("yrcTranslationTie")
+        expect(tied?.source == "NetEase YRC" && tied?.lines[1].translation == nil,
+               "equidistant YTLRC candidates are ambiguous rather than assigned by row position")
         let ignored = try await fetch("normal", descriptor: descriptor(source: "com.tencent.QQMusicMac"))
         expect(ignored == nil && NeteaseFixtureProtocol.requests().isEmpty, "QQ source cannot accidentally query the NetEase provider")
         for scenario in ["live", "punctuation", "artistSubset", "artistExtra", "durationMismatch", "durationMissing", "ambiguous", "emptySearch", "emptyResultObject", "songCountZero"] {
@@ -149,11 +327,11 @@ func runNeteaseLyricsTests() async -> [String] {
         expect(album?.lines.count == 3, "exact album safely disambiguates multiple otherwise identical catalog IDs")
         let wrongAlbum = try await fetch("album", album: "Different album")
         expect(wrongAlbum == nil && NeteaseFixtureProtocol.requests().count == 1, "album mismatch cannot silently select another recording")
-        for scenario in ["emptyLyrics", "plainLyrics", "uncollected"] {
+        for scenario in ["emptyLyrics", "plainLyrics", "uncollected", "uncollectedYRC"] {
             let result = try await fetch(scenario)
             expect(result == nil, "\(scenario) permits a separate verified fallback rather than inventing synchronized lyrics")
         }
-        for scenario in ["instrumental", "instrumentalNotice"] {
+        for scenario in ["instrumental", "instrumentalNotice", "instrumentalYRC", "instrumentalNoticeYRC"] {
             let result = try await fetch(scenario)
             expect(result?.source == "NetEase instrumental" && result?.lines.isEmpty == true, "\(scenario) is explicitly represented without showing provider notices")
         }

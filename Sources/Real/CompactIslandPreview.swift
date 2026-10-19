@@ -66,9 +66,10 @@ struct CompactIslandPreview: View {
         } else if module == "music", mode == .lyrics {
             VStack(spacing: 8) {
                 collapsed
-                Text(tr("音乐响起，歌词随行"))
-                    .font(.system(size: lyricSize, weight: p.enabled("lyricsBold") ? .semibold : .regular))
-                    .foregroundStyle(p.lyricsColor)
+                KaraokeLyricText(lyric: karaokePreviewLine(tr("音乐响起，歌词随行")), time: 0.48,
+                                 fontSize: lyricSize, weight: p.enabled("lyricsBold") ? .semibold : .regular,
+                                 highlight: p.lyricsColor)
+                    .frame(width: 250, height: ceil(lyricSize * 1.4))
                     .padding(.horizontal, 13).padding(.vertical, 6)
                     .background(.black.opacity(p.lyricsBackgroundOpacity), in: RoundedRectangle(cornerRadius: 7))
             }

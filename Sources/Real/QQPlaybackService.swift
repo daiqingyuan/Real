@@ -46,6 +46,7 @@ final class QQPlaybackService: ObservableObject {
     private var verificationTask: Task<Void, Never>?
     private var anchor: QQMediaAnchor?
     private var rawAnchor: QQMediaAnchor?
+    private var lyricClock = LyricPlaybackClock()
     private var seekFailure = QQSeekFailureState()
     private var lastVerified = Date.distantPast
     private var lastHeartbeat = Date.distantPast
@@ -109,6 +110,14 @@ final class QQPlaybackService: ObservableObject {
     func playPause() { perform(.playPause) }
     func previous() { perform(.previous) }
     func next() { perform(.next) }
+
+    /// Read on each lyric animation frame; the regular published transport
+    /// position deliberately keeps its existing observation cadence.
+    func lyricRenderPosition(at uptime: TimeInterval = ProcessInfo.processInfo.systemUptime) -> Double? {
+        guard started else { return nil }
+        return lyricClock.position(at: uptime)
+    }
+
     func seek(to seconds: Double) {
         guard started, canSeek, !transportInFlight, userAction == nil, verificationTask == nil, seconds.isFinite,
               let current = anchor, seconds >= 0, seconds <= current.duration,
@@ -217,7 +226,7 @@ final class QQPlaybackService: ObservableObject {
            now.timeIntervalSince(lastVerified) <= 20, let value = anchor.position(at: now) {
             position = value; hasTiming = true
             isPlaying = trackTransition.resolve(observed: anchor.playing, previous: isPlaying, at: now)
-        } else { anchor = nil; rawAnchor = nil; hasTiming = false; canSeek = false; position = 0 }
+        } else { anchor = nil; rawAnchor = nil; lyricClock.invalidate(); hasTiming = false; canSeek = false; position = 0 }
         if stream == nil, now >= retryAt { beginAdapter(streaming: true) }
         if heartbeat == nil, now.timeIntervalSince(lastHeartbeat) >= 10 {
             lastHeartbeat = now; beginAdapter(streaming: false)
@@ -265,9 +274,28 @@ final class QQPlaybackService: ObservableObject {
         guard let pid = runningPlayerPID(),
               let value = QQMediaAnchor.decode(snapshotData, expectedPID: pid, expectedBundleID: sourceBundleIdentifier) else { invalidateTiming(); return }
         let receivedAt = Date()
+        let receivedUptime = ProcessInfo.processInfo.systemUptime
         guard let resolved = value.resolvingClock(previousRaw: rawAnchor, previousResolved: anchor,
                                                  receivedAt: receivedAt) else { return }
         guard let resolvedPosition = resolved.position(at: receivedAt) else { invalidateTiming(); return }
+        let currentRenderPosition = lyricClock.position(at: receivedUptime)
+        if let previous = anchor, resolved.hasSameTrack(as: previous),
+           resolved.elapsed == previous.elapsed, resolved.timestamp == previous.timestamp,
+           resolved.rate == previous.rate, resolved.playing == previous.playing,
+           currentRenderPosition != nil {
+            lyricClock.refresh(at: receivedUptime)
+        } else {
+            // A source flag/rate change with the same raw clock pair freezes or
+            // resumes the monotonic projection, just as resolvingClock corrects
+            // the published wall-clock anchor. A genuinely new pair (seek) or
+            // identity (track replacement) remains immediately authoritative.
+            let sameSourceClock = rawAnchor.map {
+                value.hasSameTrack(as: $0) && value.elapsed == $0.elapsed && value.timestamp == $0.timestamp
+            } ?? false
+            let renderPosition = sameSourceClock ? currentRenderPosition ?? resolvedPosition : resolvedPosition
+            lyricClock.accept(position: renderPosition, duration: resolved.duration,
+                              rate: resolved.rate, isPlaying: resolved.playing, at: receivedUptime)
+        }
         seekFailure.observe(value)
         rawAnchor = value; anchor = resolved; lastVerified = receivedAt; retryDelay = 2
         if title != value.title { title = value.title }
@@ -282,7 +310,7 @@ final class QQPlaybackService: ObservableObject {
     }
 
     private func invalidateTiming() {
-        anchor = nil; rawAnchor = nil; hasTiming = false; canSeek = false; position = 0
+        anchor = nil; rawAnchor = nil; lyricClock.invalidate(); hasTiming = false; canSeek = false; position = 0
         // The system exposes one active clock. Retain this player's last metadata
         // when another player owns it; a lost clock never selects a lyric.
         if player == .qq { duration = 0; album = ""; artwork = nil }
@@ -475,6 +503,7 @@ final class QQPlaybackService: ObservableObject {
     }
 
     private func clear() {
+        lyricClock.invalidate()
         title = ""; artist = ""; album = ""; artwork = nil
         isPlaying = false; position = 0; duration = 0
         hasTiming = false; canSeek = false

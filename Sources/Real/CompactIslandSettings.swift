@@ -79,7 +79,7 @@ struct CompactIslandSettings: View {
                             Text(tr("大")).tag("large")
                         }.labelsHidden().frame(width: 120)
                     }
-                    settingRow("悬浮歌词颜色") {
+                    settingRow("歌词高亮颜色") {
                         HStack(spacing: 12) {
                             Button { LyricsColorPanel.shared.show(for: p) } label: {
                                 RoundedRectangle(cornerRadius: 5)

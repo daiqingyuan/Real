@@ -1,16 +1,36 @@
 import CoreGraphics
 import Foundation
 
+/// A provider-timed span in the displayed line. Times are absolute playback
+/// seconds; ranges use UTF-16 so they can be applied to attributed strings.
+struct LyricWord: Equatable, Sendable {
+    let utf16Location: Int
+    let utf16Length: Int
+    let startTime: Double
+    let duration: Double
+
+    var range: NSRange { NSRange(location: utf16Location, length: utf16Length) }
+}
+
+enum LyricTiming: Equatable, Sendable {
+    case sentence, wordAnnotated
+}
+
 struct LyricLine: Identifiable, Equatable, Sendable {
     let id: Int
     let time: Double
     let text: String
     let translation: String?
     let endTime: Double?
+    let words: [LyricWord]
+    let timing: LyricTiming
 
-    init(id: Int, time: Double, text: String, translation: String? = nil, endTime: Double? = nil) {
+    init(id: Int, time: Double, text: String, translation: String? = nil, endTime: Double? = nil,
+         words: [LyricWord] = [], timing: LyricTiming = .sentence) {
         self.id = id; self.time = time; self.text = text
         self.translation = translation; self.endTime = endTime
+        self.words = words
+        self.timing = words.isEmpty ? timing : .wordAnnotated
     }
 }
 

@@ -11,17 +11,33 @@ struct QQLyricsStrip: View {
     var body: some View {
         let key = LyricDisplayPolicy.trackKey(sourceBundleIdentifier: player.sourceBundleIdentifier,
                                              title: player.title, artist: player.artist)
-        let time = LyricDisplayPolicy.displayTime(playbackTime: player.position, offset: preferences.lyricOffset(for: key))
+        let time = LyricDisplayPolicy.displayTime(playbackTime: player.lyricRenderPosition() ?? .nan,
+                                                 offset: preferences.lyricOffset(for: key))
         let line = player.hasTiming && lyrics.trackKey == key ? lyrics.displayLyricLine(at: time) : nil
         let fontSize = LyricDisplayPolicy.fontSize(for: preferences.lyricsTextSize)
         let weight: Font.Weight = preferences.enabled("lyricsBold") ? .bold : .medium
         let background = LyricDisplayPolicy.backgroundOpacity(preferences.lyricsBackgroundOpacity)
-        HStack(spacing: 6) {
+        return HStack(spacing: 6) {
             Image(systemName: "music.note").font(.system(size: 12, weight: .medium)).frame(width: 16)
             VStack(alignment: .center, spacing: 2) {
-                ScrollingLyric(text: previewText ?? line?.text ?? [player.title, player.artist].filter { !$0.isEmpty }.joined(separator: " · "),
-                               fontSize: fontSize, weight: weight)
-                    .frame(height: ceil(fontSize * 1.4))
+                if let previewText {
+                    KaraokeLyricText(lyric: karaokePreviewLine(previewText), time: 0.48,
+                                     fontSize: fontSize, weight: weight, highlight: preferences.lyricsColor)
+                        .frame(height: ceil(fontSize * 1.4))
+                } else {
+                    KaraokeLyricText(lyric: LyricLine(id: -1, time: .infinity,
+                                                     text: [player.title, player.artist].filter { !$0.isEmpty }.joined(separator: " · ")),
+                                     time: .nan, fontSize: fontSize, weight: weight, highlight: preferences.lyricsColor,
+                                     playbackClock: {
+                                         guard player.hasTiming else { return nil }
+                                         return LyricDisplayPolicy.displayTime(playbackTime: player.lyricRenderPosition() ?? .nan,
+                                                                               offset: preferences.lyricOffset(for: key))
+                                     }, lineAtTime: { time in
+                                         guard lyrics.trackKey == key else { return nil }
+                                         return lyrics.displayLyricLine(at: time)
+                                     }, playing: player.isPlaying && player.hasTiming)
+                        .frame(height: ceil(fontSize * 1.4))
+                }
                 if previewText == nil, !lyrics.isEnglish, let translation = line?.translation, !translation.isEmpty {
                     ScrollingLyric(text: translation, fontSize: max(9, fontSize - 3), weight: weight)
                         .frame(height: ceil(max(9, fontSize - 3) * 1.4))
@@ -30,6 +46,7 @@ struct QQLyricsStrip: View {
             }
             Color.clear.frame(width: 16, height: 1).accessibilityHidden(true)
         }
+        .id(key)
         .foregroundStyle(preferences.lyricsColor)
         .padding(.horizontal, 12).padding(.vertical, 8)
         .background(LinearGradient(stops: [
@@ -40,6 +57,13 @@ struct QQLyricsStrip: View {
         .overlay(RoundedRectangle(cornerRadius: 12).strokeBorder(.white.opacity(0.08)))
         .environment(\.locale, preferences.locale)
     }
+}
+
+/// Decorative color sample only; never used to infer timing for a real track.
+func karaokePreviewLine(_ text: String) -> LyricLine {
+    LyricLine(id: -1, time: 0, text: text, words: [
+        LyricWord(utf16Location: 0, utf16Length: (text as NSString).length, startTime: 0, duration: 1)
+    ])
 }
 
 struct ScrollingLyric: View {

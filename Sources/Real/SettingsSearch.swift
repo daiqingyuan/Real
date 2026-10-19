@@ -95,7 +95,7 @@ enum SettingsSearchIndex {
         entry("music.lyrics.font", "歌词字号", "island", module: "music", anchor: "music.lyrics",
               en: "Lyric text size", ja: "歌詞の文字サイズ", ru: "Размер текста песни",
               aliases: "歌词 字体 字号 大小 小 标准 大 font size lyrics text small standard large 歌詞 フォント サイズ 文字 шрифт размер текст песни"),
-        entry("music.lyrics.color", "悬浮歌词颜色", "island", module: "music", anchor: "music.lyrics",
+        entry("music.lyrics.color", "歌词高亮颜色", "island", module: "music", anchor: "music.lyrics",
               en: "Floating lyric color", ja: "フローティング歌詞の色", ru: "Цвет плавающего текста песни",
               aliases: "歌词 颜色 色盘 粉色 背景 深浅 透明度 color colour palette pink background opacity lyrics 歌詞 色 背景 透明度 цвет палитра фон прозрачность"),
         entry("music.lyrics.sync", "歌词同步微调", "island", module: "music", anchor: "music.lyrics",

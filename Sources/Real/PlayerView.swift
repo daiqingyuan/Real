@@ -65,8 +65,22 @@ struct PlayerView: View {
                     ScrollingLyric(text: artist.isEmpty ? tr("打开音乐播放器开始播放") : artist, fontSize: 12, centerShortText: false)
                         .frame(height: 16).foregroundStyle(accent.opacity(0.85))
                     if preferences.enabled("lyrics") {
-                        ScrollingLyric(text: lyricSummary, fontSize: lyricFontSize, weight: lyricWeight, centerShortText: false)
-                            .frame(height: ceil(lyricFontSize * 1.4)).foregroundStyle(preferences.lyricsColor)
+                        if useDesktop, !demo {
+                            KaraokeLyricText(lyric: LyricLine(id: -1, time: .infinity, text: lyricSummary), time: .nan,
+                                             fontSize: lyricFontSize, weight: lyricWeight, highlight: preferences.lyricsColor,
+                                             centerShortText: false, playbackClock: {
+                                                 guard player.hasTiming else { return nil }
+                                                 return LyricDisplayPolicy.displayTime(playbackTime: player.lyricRenderPosition() ?? .nan,
+                                                                                       offset: preferences.lyricOffset(for: trackKey))
+                                             }, lineAtTime: { time in
+                                                 guard lyrics.trackKey == trackKey else { return nil }
+                                                 return lyrics.displayLyricLine(at: time)
+                                             }, playing: player.isPlaying && player.hasTiming)
+                                .frame(height: ceil(lyricFontSize * 1.4)).id(trackKey)
+                        } else {
+                            ScrollingLyric(text: lyricSummary, fontSize: lyricFontSize, weight: lyricWeight, centerShortText: false)
+                                .frame(height: ceil(lyricFontSize * 1.4)).foregroundStyle(preferences.lyricsColor)
+                        }
                     }
                     seekBar.padding(.top, 3)
                     HStack(spacing: 3) {

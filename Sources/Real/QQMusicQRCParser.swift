@@ -8,8 +8,11 @@ enum QQMusicQRCParser {
         let translations: [LyricLine]
     }
     private static let linePattern = try! NSRegularExpression(pattern: #"\[(\d+),(\d+)\]([\s\S]*?)(?=\[\d+,\d+\]|$)"#)
-    private static let wordPattern = try! NSRegularExpression(pattern: #"\(\d+,\d+\)"#)
+    // Capture malformed numeric annotations as well, so readable lyrics can
+    // survive a bad word timestamp without exposing it as part of the lyric.
+    private static let wordPattern = try! NSRegularExpression(pattern: #"\(([^(),\r\n]*),([^()\r\n]*)\)"#)
     private static let entityPattern = try! NSRegularExpression(pattern: #"&#(x[0-9a-fA-F]+|\d+);"#)
+    private static let maximumWordTimeMS = 604_800_000.0 // A generous seven-day audio bound.
 
     static func parse(qrcContent: String, translationContent: String? = nil, duration: Double? = nil) -> QRCResult {
         let content = decodeEntities(qrcContent)
@@ -30,7 +33,8 @@ enum QQMusicQRCParser {
             used.insert(match)
             let translation = translations[match].text
             return LyricLine(id: line.id, time: line.time, text: line.text,
-                translation: translation == line.text ? nil : translation, endTime: line.endTime)
+                translation: translation == line.text ? nil : translation, endTime: line.endTime,
+                words: line.words, timing: line.timing)
         }
     }
 
@@ -116,24 +120,100 @@ enum QQMusicQRCParser {
     }
 
     private static func parseQRCLines(_ content: String) -> [LyricLine] {
-        var entries: [(Double, Double, String, Int)] = []
+        var entries: [(start: Double, end: Double, text: String, words: [LyricWord], order: Int)] = []
         let ns = content as NSString
         for match in linePattern.matches(in: content, range: NSRange(location: 0, length: ns.length)) {
             guard let startMS = Double(ns.substring(with: match.range(at: 1))),
                   let durationMS = Double(ns.substring(with: match.range(at: 2))),
                   startMS.isFinite, durationMS.isFinite else { continue }
             let raw = ns.substring(with: match.range(at: 3))
-            let text = wordPattern.stringByReplacingMatches(in: raw, range: NSRange(location: 0, length: (raw as NSString).length), withTemplate: "")
-                .trimmingCharacters(in: .whitespacesAndNewlines)
             let start = startMS / 1000
             let end = start + durationMS / 1000
             guard start.isFinite, end.isFinite else { continue }
-            entries.append((start, end, text, entries.count))
+            let parsed = parseWords(raw, lineStartMS: startMS, lineEndMS: startMS + durationMS)
+            let adjustedEnd = parsed.acceptedEndMS.isFinite ? max(end, parsed.acceptedEndMS / 1000) : end
+            entries.append((start, adjustedEnd, parsed.text, parsed.words, entries.count))
         }
-        entries.sort { $0.0 == $1.0 ? $0.3 < $1.3 : $0.0 < $1.0 }
+        entries.sort { $0.start == $1.start ? $0.order < $1.order : $0.start < $1.start }
         return entries.enumerated().map { index, entry in
-            LyricLine(id: index, time: entry.0, text: entry.2, endTime: entry.1)
+            LyricLine(id: index, time: entry.start, text: entry.text, endTime: entry.end,
+                      words: entry.words, timing: .wordAnnotated)
         }
+    }
+
+    private static func parseWords(_ raw: String, lineStartMS: Double, lineEndMS: Double) -> (text: String, words: [LyricWord], acceptedEndMS: Double) {
+        let source = raw as NSString
+        var text = ""
+        var textLength = 0
+        var cursor = 0
+        var candidates: [(range: NSRange, startMS: Double?, durationMS: Double?)] = []
+        let validEnvelope = lineStartMS >= 0 && lineEndMS <= maximumWordTimeMS && lineEndMS > lineStartMS
+        let instantaneousCharacters = CharacterSet.whitespacesAndNewlines.union(.punctuationCharacters)
+
+        func isTimingField(_ value: String) -> Bool {
+            let value = value.trimmingCharacters(in: .whitespaces).lowercased()
+            guard let first = value.first else { return false }
+            return first.isASCII && (first.isNumber || first == "+" || first == "-")
+                || ["nan", "inf", "infinity"].contains(value)
+        }
+        func milliseconds(_ value: String) -> Double? {
+            guard !value.isEmpty, value.utf8.allSatisfy({ (48...57).contains($0) }),
+                  let number = Double(value), number.isFinite, number <= maximumWordTimeMS else { return nil }
+            return number
+        }
+
+        for match in wordPattern.matches(in: raw, range: NSRange(location: 0, length: source.length)) {
+            let startField = source.substring(with: match.range(at: 1))
+            let durationField = source.substring(with: match.range(at: 2))
+            // Ordinary lyric parentheticals such as "(hello, world)" are text.
+            guard isTimingField(startField) || isTimingField(durationField) else { continue }
+            let segment = source.substring(with: NSRange(location: cursor, length: match.range.location - cursor))
+            let length = (segment as NSString).length
+            text += segment
+            candidates.append((NSRange(location: textLength, length: length),
+                               milliseconds(startField), milliseconds(durationField)))
+            textLength += length
+            cursor = NSMaxRange(match.range)
+        }
+        let tail = source.substring(from: cursor)
+        text += tail
+        // Trailing text has no provider clock and stays outside timed ranges.
+
+        // Trim whole Characters, then adjust provider ranges to the text that
+        // is actually displayed. Internal whitespace and punctuation survive.
+        let first = text.firstIndex(where: { !$0.isWhitespace }) ?? text.endIndex
+        let last = text.lastIndex(where: { !$0.isWhitespace }).map { text.index(after: $0) } ?? first
+        let trimStart = first.utf16Offset(in: text)
+        let trimEnd = last.utf16Offset(in: text)
+        let trimmed = String(text[first..<last])
+        let boundaries = Set(trimmed.indices.map { $0.utf16Offset(in: trimmed) } + [trimmed.utf16.count])
+        var adjusted: [LyricWord] = []
+        var previousEndMS = lineStartMS
+        var acceptedEndMS = lineEndMS
+        for candidate in candidates {
+            let start = max(trimStart, candidate.range.location)
+            let end = min(trimEnd, NSMaxRange(candidate.range))
+            guard end > start else { continue } // An edge segment may contain only trimmed spaces.
+            let location = start - trimStart
+            let length = end - start
+            guard validEnvelope, boundaries.contains(location), boundaries.contains(location + length),
+                  let startMS = candidate.startMS, let durationMS = candidate.durationMS,
+                  startMS >= lineStartMS, startMS <= lineEndMS, startMS >= previousEndMS,
+                  startMS + durationMS <= maximumWordTimeMS,
+                  // QQ headers sometimes round an inclusive final millisecond.
+                  // Preserve the source token clock, allowing only this tiny
+                  // header-end discrepancy, and expand the published envelope.
+                  startMS + durationMS <= lineEndMS + 2 else { continue }
+            let displayedSpan = (trimmed as NSString).substring(with: NSRange(location: location, length: length))
+            // Unknown sung spans remain readable and uncolored. A bad range or
+            // clock never consumes the temporal watermark of a later good span.
+            guard durationMS > 0 || displayedSpan.unicodeScalars.allSatisfy({ instantaneousCharacters.contains($0) }) else { continue }
+            adjusted.append(LyricWord(utf16Location: location, utf16Length: length,
+                startTime: startMS / 1000, duration: durationMS / 1000))
+            previousEndMS = startMS + durationMS
+            acceptedEndMS = max(acceptedEndMS, previousEndMS)
+        }
+        return (trimmed, adjusted, acceptedEndMS)
     }
 
     private final class LyricXMLReader: NSObject, XMLParserDelegate {

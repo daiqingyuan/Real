@@ -11,6 +11,8 @@ struct LyricsRegressionRunner {
         var failures: [String] = []
         let resilienceOnly = CommandLine.arguments.contains("--resilience-only")
         if !resilienceOnly {
+            failures += runKaraokeParserTests() + runLyricPlaybackClockTests() + runKaraokeRenderingTests()
+            failures += runKaraokeNativeViewTests()
             failures += runLyricsTests() + runQQMusicLyricsTests()
             failures += await runQQMusicPipelineTests()
             failures += await runLyricsLifecycleTests()

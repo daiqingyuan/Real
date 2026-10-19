@@ -10,7 +10,7 @@ import SwiftUI
     func show(for preferences: Preferences) {
         self.preferences = preferences
         let panel = NSColorPanel.shared
-        panel.title = tr("悬浮歌词颜色")
+        panel.title = tr("歌词高亮颜色")
         panel.identifier = NSUserInterfaceItemIdentifier("real.lyrics-color")
         panel.showsAlpha = false
         panel.isContinuous = true

@@ -28,8 +28,24 @@ final class NeteaseLyricsProvider: @unchecked Sendable {
         let code: Int
         let lrc: Text?
         let tlyric: Text?
+        let yrc: Text?
+        let ytlrc: Text?
         let nolyric: Bool?
         let uncollected: Bool?
+
+        private enum CodingKeys: String, CodingKey { case code, lrc, tlyric, yrc, ytlrc, nolyric, uncollected }
+        init(from decoder: Decoder) throws {
+            let values = try decoder.container(keyedBy: CodingKeys.self)
+            code = try values.decode(Int.self, forKey: .code)
+            lrc = try values.decodeIfPresent(Text.self, forKey: .lrc)
+            tlyric = try values.decodeIfPresent(Text.self, forKey: .tlyric)
+            nolyric = try values.decodeIfPresent(Bool.self, forKey: .nolyric)
+            uncollected = try values.decodeIfPresent(Bool.self, forKey: .uncollected)
+            // Enrichment is optional. A changed YRC shape must never discard
+            // an otherwise valid legacy LRC response.
+            yrc = try? values.decodeIfPresent(Text.self, forKey: .yrc)
+            ytlrc = try? values.decodeIfPresent(Text.self, forKey: .ytlrc)
+        }
     }
 
     enum RequestError: Error {
@@ -108,26 +124,39 @@ final class NeteaseLyricsProvider: @unchecked Sendable {
         try Task.checkCancellation()
         let request = Self.request(path: "/api/song/lyric", query: [
             URLQueryItem(name: "id", value: String(match.id)), URLQueryItem(name: "lv", value: "-1"),
-            URLQueryItem(name: "kv", value: "-1"), URLQueryItem(name: "tv", value: "-1")
+            URLQueryItem(name: "kv", value: "-1"), URLQueryItem(name: "tv", value: "-1"),
+            URLQueryItem(name: "yv", value: "-1")
         ])
         let lyric = try JSONDecoder().decode(LyricsResponse.self, from: try await data(for: request))
         try Task.checkCancellation()
         guard lyric.code == 200 else { throw RequestError.service(lyric.code) }
         if lyric.nolyric == true { return Payload(lines: [], source: "NetEase instrumental") }
         guard lyric.uncollected != true else { return nil }
-        guard let originalText = lyric.lrc?.lyric else { throw RequestError.response }
         let duration = knownDuration ?? match.duration.flatMap { $0.isFinite && $0 > 0 ? $0 / 1000 : nil }
-        let originals = LRCParser.parse(originalText, duration: duration)
+        let legacy = LRCParser.parse(lyric.lrc?.lyric ?? "", duration: duration)
             .filter { $0.time.isFinite && $0.time >= 0 && (duration == nil || $0.time <= duration! + 2) }
-        let nonempty = originals.map { line in
-            Self.normalized(line.text).unicodeScalars.filter { CharacterSet.alphanumerics.contains($0) }.map(String.init).joined()
-        }.filter { !$0.isEmpty }
-        guard !nonempty.isEmpty else { return nil }
+        func significantTexts(_ lines: [LyricLine]) -> [String] {
+            lines.map { line in
+                Self.normalized(line.text).unicodeScalars.filter { CharacterSet.alphanumerics.contains($0) }.map(String.init).joined()
+            }.filter { !$0.isEmpty }
+        }
         let instrumentalNotices = ["纯音乐请欣赏", "纯音乐请您欣赏", "此歌曲为没有填词的纯音乐请您欣赏"]
+        let legacyTexts = significantTexts(legacy)
+        if !legacyTexts.isEmpty, legacyTexts.allSatisfy({ instrumentalNotices.contains($0) }) {
+            return Payload(lines: [], source: "NetEase instrumental")
+        }
+        let yrc = NeteaseYRCParser.parse(lyric.yrc?.lyric ?? "", duration: duration)
+        let usesYRC = NeteaseYRCParser.hasWordTimings(yrc)
+        if !usesYRC, lyric.lrc?.lyric == nil { throw RequestError.response }
+        let originals = usesYRC ? yrc : legacy
+        let nonempty = significantTexts(originals)
+        guard !nonempty.isEmpty else { return nil }
         if nonempty.allSatisfy({ instrumentalNotices.contains($0) }) {
             return Payload(lines: [], source: "NetEase instrumental")
         }
-        let translations = LRCParser.parse(lyric.tlyric?.lyric ?? "", duration: duration)
+        // YRC and LRC may have different row boundaries/timestamps. Only the
+        // YRC-specific translation belongs on a word-timed original.
+        let translations = LRCParser.parse((usesYRC ? lyric.ytlrc?.lyric : lyric.tlyric?.lyric) ?? "", duration: duration)
         let merged = originals.map { line -> LyricLine in
             // Timestamp matching, never row position: translations can omit
             // credits, blank lines, or entire passages from the original LRC.
@@ -137,10 +166,11 @@ final class NeteaseLyricsProvider: @unchecked Sendable {
                 if sorted.count > 1, abs(abs(sorted[1].time - line.time) - abs(nearest.time - line.time)) < 0.001 { return nil }
                 return nearest.text == line.text ? nil : nearest.text
             }
-            return LyricLine(id: line.id, time: line.time, text: line.text, translation: translation, endTime: line.endTime)
+            return LyricLine(id: line.id, time: line.time, text: line.text, translation: translation,
+                             endTime: line.endTime, words: line.words, timing: line.timing)
         }
         try Task.checkCancellation()
-        return Payload(lines: merged, source: "NetEase LRC")
+        return Payload(lines: merged, source: usesYRC ? "NetEase YRC" : "NetEase LRC")
     }
 
     private func data(for request: URLRequest) async throws -> Data {
